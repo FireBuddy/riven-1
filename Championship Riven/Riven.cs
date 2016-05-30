@@ -438,7 +438,7 @@ namespace Championship_Riven
 
                 if (E.IsReady() && RivenMenu.CheckBox(RivenMenu.Combo, "UseECombo"))
                 {
-                    if (Target.IsValidTarget(E.Range) && !Target.CanMove)
+                    if (Target.IsValidTarget(E.Range) && Target.CanMove)
                     {
                         Player.CastSpell(SpellSlot.E, Target.Position);
                     }
@@ -446,7 +446,7 @@ namespace Championship_Riven
 
                 if (W.IsReady() && RivenMenu.CheckBox(RivenMenu.Combo, "UseWCombo"))
                 {
-                    if (Target.IsValidTarget(W.Range) && !Target.CanMove && !Player.HasBuff("Valor"))
+                    if (Target.IsValidTarget(W.Range) && Target.CanMove && !Player.HasBuff("Valor"))
                     {
                         Core.DelayAction(() => W.Cast(), 40);
                     }
