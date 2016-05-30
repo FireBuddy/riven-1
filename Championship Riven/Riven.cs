@@ -446,7 +446,7 @@ namespace Championship_Riven
 
                 if (W.IsReady() && RivenMenu.CheckBox(RivenMenu.Combo, "UseWCombo"))
                 {
-                    if (Target.IsValidTarget(W.Range) && !Target.CanMove)
+                    if (Target.IsValidTarget(W.Range) && !Target.CanMove && !Player.HasBuff("Valor"))
                     {
                         Core.DelayAction(() => W.Cast(), 40);
                     }
