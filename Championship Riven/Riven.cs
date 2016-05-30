@@ -444,7 +444,7 @@ namespace Championship_Riven
                     }
                 }
 
-                if (E.IsReady() && RivenMenu.CheckBox(RivenMenu.Combo, "UseECombo"))
+                if (CountQ == 2 && E.IsReady() && RivenMenu.CheckBox(RivenMenu.Combo, "UseECombo"))
                 {
                     if (Target.IsValidTarget(E.Range) && Target.CanMove)
                     {
