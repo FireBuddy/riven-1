@@ -438,7 +438,7 @@ namespace Championship_Riven
 
                 if (E.IsReady() && RivenMenu.CheckBox(RivenMenu.Combo, "UseECombo"))
                 {
-                    if (Target.IsValidTarget(E.Range))
+                    if (Target.IsValidTarget(E.Range) && !Target.CanMove)
                     {
                         Player.CastSpell(SpellSlot.E, Target.Position);
                     }
