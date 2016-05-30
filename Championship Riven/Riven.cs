@@ -438,7 +438,7 @@ namespace Championship_Riven
                 
                 if (CountQ == 2 && Q.IsReady())
                 {
-                    if (Target.IsValidTarget(Q.Range) && Target.CanMove && !Player.HasBuff("Valor"))
+                    if (Target.IsValidTarget(450) && Target.CanMove && !Player.HasBuff("Valor"))
                     {
                         Player.CastSpell(SpellSlot.Q, Target.Position);
                     }
