@@ -435,6 +435,14 @@ namespace Championship_Riven
                         Youmu.Cast();
                     }
                 }
+                
+                if (CountQ == 2 && Q.IsReady())
+                {
+                    if (Target.IsValidTarget(Q.Range) && Target.CanMove && !Player.HasBuff("Valor"))
+                    {
+                        Player.CastSpell(SpellSlot.Q, Target.Position);
+                    }
+                }
 
                 if (E.IsReady() && RivenMenu.CheckBox(RivenMenu.Combo, "UseECombo"))
                 {
