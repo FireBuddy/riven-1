@@ -456,7 +456,7 @@ namespace Championship_Riven
                 {
                     if (Target.IsValidTarget(W.Range) && Target.CanMove && !Player.HasBuff("Valor"))
                     {
-                        Core.DelayAction(() => W.Cast(), 40);
+                        Player.CastSpell(SpellSlot.W, Target.Position);
                     }
                 }
             }
