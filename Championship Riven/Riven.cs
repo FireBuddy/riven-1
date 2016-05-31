@@ -75,13 +75,13 @@ namespace Championship_Riven
             {
                 var lasthitmode = Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.JungleClear);
 
-                if (lasthitmode)
+                if (!lasthitmode)
                 {
                     return;
                 }
 
 
-                if(target.Type == GameObjectType.obj_Turret)
+                else
                 {
                     {
                         args.Process = false;
