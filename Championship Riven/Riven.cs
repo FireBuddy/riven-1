@@ -67,30 +67,10 @@ namespace Championship_Riven
             Obj_AI_Base.OnPlayAnimation += Obj_AI_Base_OnPlayAnimation;
             Obj_AI_Base.OnProcessSpellCast += Obj_AI_Base_OnProcessSpellCast;
             Orbwalker.OnPostAttack += Orbwalker_OnPostAttack;
-            Orbwalker.OnPreAttack += BeforeAttack;
+            //Orbwalker.OnPreAttack += BeforeAttack;
         }
         
-        private static void BeforeAttack(AttackableUnit target, Orbwalker.PreAttackArgs args)
-        {
-            if (ObjectManager.Player.Level <= 1)
-            {
-                var jungleclearmode = Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.JungleClear);
 
-                if (jungleclearmode)
-                {
-                    return;
-                }
-                var allyinrange = HeroManager.Allies.Count(x => !x.IsMe && x.Distance(Player) <= 700);
-                if(target == "SRU_RedMini10.1.3" || allyinrange > 0)
-                {
-
-                    {
-                        args.Process = false;
-                    }
-                }
-            }
-
-        }
        
   
           
@@ -535,6 +515,34 @@ namespace Championship_Riven
                     }
     
                 }
+            }
+            {
+                if (ObjectManager.Player.Level <= 1)
+                {
+                    
+                    var jminions = EntityManager.MinionsAndMonsters.GetJungleMonsters(Player.Instance.ServerPosition, 1000, true);
+                    foreach (var jungleMobs in jminions.Where(x => x.IsValidTarget(Player.Instance.AttackRange)))              
+                            {
+                                if (jungleMobs == null)
+                                {
+                                    
+                                    return;
+                                }
+                                if (jungleMobs != null)
+                                {
+                                        if (jungleMobs.Name == "SRU_RedMini10.1.3")
+                                        {
+                                                
+                                                Player.IssueOrder(GameObjectOrder.AttackUnit, jungleMobs);
+                                        }
+                                        else
+                                        {
+                                               
+                                        }
+                                }
+                           }
+                        
+                }   
             }
 
         }
