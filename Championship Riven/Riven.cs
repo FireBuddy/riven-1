@@ -508,6 +508,13 @@ namespace Championship_Riven
                     }
                 }
                 var cooldownq = ObjectManager.Player.Spellbook.GetSpell(SpellSlot.Q).Cooldown;
+                if (CountQ == 0 && Q.IsReady())
+                {
+                    if (!Target.IsValidTarget(450) && !Player.HasBuff("Valor") && cooldownq < 9500)
+                    {
+                        Player.CastSpell(SpellSlot.Q, Game.CursorPos);
+                    }
+                }
             }
         }
 
