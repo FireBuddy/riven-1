@@ -534,7 +534,7 @@ namespace Championship_Riven
                                         }
                                         else
                                         {
-                                               Orbwalker.DisableAttacking = true
+                                               
                                         }
                                 }
                            }
