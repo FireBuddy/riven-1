@@ -483,29 +483,30 @@ namespace Championship_Riven
 
         private static void Jungleclear()
         {
-            var Monsters = EntityManager.MinionsAndMonsters.GetJungleMonsters().OrderByDescending(x => x.MaxHealth).FirstOrDefault(x => x.IsValidTarget(E.Range));
-
-            if (Monsters == null)
-                return;
-
-            if (RivenMenu.CheckBox(RivenMenu.Jungleclear, "UseWJG"))
             {
-                if(Monsters.IsValidTarget(W.Range))
+                var Monsters = EntityManager.MinionsAndMonsters.GetJungleMonsters().OrderByDescending(x => x.MaxHealth).FirstOrDefault(x => x.IsValidTarget(E.Range));
+    
+                if (Monsters == null)
+                    return;
+    
+                if (RivenMenu.CheckBox(RivenMenu.Jungleclear, "UseWJG"))
                 {
-                    W.Cast();
+                    if(Monsters.IsValidTarget(W.Range))
+                    {
+                        W.Cast();
+                    }
+                }
+    
+                if (RivenMenu.CheckBox(RivenMenu.Jungleclear, "UseEJG"))
+                {
+                    if(Monsters.IsValidTarget(E.Range))
+                    {
+                        Player.CastSpell(SpellSlot.E, Monsters.Position);
+                    }
+    
                 }
             }
-
-            if (RivenMenu.CheckBox(RivenMenu.Jungleclear, "UseEJG"))
             {
-                if(Monsters.IsValidTarget(E.Range))
-                {
-                    Player.CastSpell(SpellSlot.E, Monsters.Position);
-                }
-
-            }
-        }
-        {
 
                 var jminions = EntityManager.MinionsAndMonsters.GetJungleMonsters(Variables._Player.ServerPosition, 1000, true);
                 foreach (var jungleMobs in jminions.Where(x => x.IsValidTarget(Variables._Player.AttackRange)))
@@ -520,6 +521,7 @@ namespace Championship_Riven
                     }
                 }
             
+            }
         }
 
         private static void Game_OnWndProc(WndEventArgs args)
