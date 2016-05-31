@@ -482,7 +482,7 @@ namespace Championship_Riven
         }
 
         private static void Jungleclear()
-        {
+        
             {
                 var Monsters = EntityManager.MinionsAndMonsters.GetJungleMonsters().OrderByDescending(x => x.MaxHealth).FirstOrDefault(x => x.IsValidTarget(E.Range));
     
@@ -506,23 +506,8 @@ namespace Championship_Riven
     
                 }
             }
-            {
 
-                var jminions = EntityManager.MinionsAndMonsters.GetJungleMonsters(Player.ServerPosition, 1000, true);
-                foreach (var jungleMobs in jminions.Where(x => x.IsValidTarget(Player.AttackRange)))
-                {
-                    if (jungleMobs == null)
-                    {
-                        return;
-                    }
-                    if (jungleMobs.BaseSkinName == "SRU_Blue" && jungleMobs.IsVisible  && jungleMobs != null )
-                    {
-                        Player.CastSpell(SpellSlot.E, jungleMobs);
-                    }
-                }
-            
-            }
-        }
+        
 
         private static void Game_OnWndProc(WndEventArgs args)
         {
