@@ -825,12 +825,6 @@ namespace Championship_Riven
         {
             if (!sender.IsMe) return;
 
-            if (args.SData.Name.ToLower().Contains(Riven.W.Name.ToLower()))
-            {
-                LastCastW = Environment.TickCount;
-                return;
-            }
-            if (args.SData.Name.ToLower().Contains(Riven.Q.Name.ToLower()))
             {
                 LastCastQ = Environment.TickCount;
                 Core.DelayAction(() =>
