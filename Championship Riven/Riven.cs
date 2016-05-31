@@ -61,7 +61,7 @@ namespace Championship_Riven
             Qss = new Item((int)ItemId.Quicksilver_Sash, 0);
             Mercurial = new Item((int)ItemId.Mercurial_Scimitar, 0);
 
-            Game.OnTick += Game_OnTick;
+            
             DamageIndicator.Initialize(DamageTotal);
             Game.OnUpdate += Game_OnUpdate;
             Game.OnWndProc += Game_OnWndProc;
