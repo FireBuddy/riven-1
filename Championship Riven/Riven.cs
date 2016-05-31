@@ -76,14 +76,14 @@ namespace Championship_Riven
         
         private static void Game_OnTick(EventArgs args)
         {
-            if (LastCastQ + 3600 < Environment.TickCount)
+            if (LastCastQ + 7000 < Environment.TickCount)
             {
                 CountQ = 0;
             }
-            if (!Player.Instance.IsRecalling() && CountQ < 3 && LastCastQ + 3480 < Environment.TickCount && Player.Instance.HasBuff("RivenTriCleaveBuff"))
+            if (!Player.Instance.IsRecalling() && CountQ < 3 && LastCastQ + 7000 < Environment.TickCount && Player.Instance.HasBuff("RivenTriCleaveBuff"))
             {
                 Player.CastSpell(SpellSlot.Q,
-                    Orbwalker.LastTarget != null && Orbwalker.LastAutoAttack - Environment.TickCount < 3000
+                    Orbwalker.LastTarget != null && Orbwalker.LastAutoAttack - Environment.TickCount < 7000
                         ? Orbwalker.LastTarget.Position
                         : Game.CursorPos);
             }
