@@ -76,7 +76,7 @@ namespace Championship_Riven
                0)
                 var lasthitmode = Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.JungleClear);
 
-                if (!lasthitmode || !RivenMenu.CheckBox(RivenMenu.Jungleclear, "UseEJG"))
+                if (!lasthitmode)
                 {
                     return;
                 }
