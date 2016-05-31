@@ -10,6 +10,8 @@ namespace Championship_Riven
 {
     class Riven
     {
+        public static Vector2 spotA = new Vector2(10922, 6908);
+        
         public static int CountQ;
         public static int LastQ;
         public static int LastW;
@@ -501,6 +503,26 @@ namespace Championship_Riven
                     Player.CastSpell(SpellSlot.E, Monsters.Position);
                 }
 
+            }
+        }
+        {
+            if (Variables._Player.Distance(spotA) <= 600)
+            {
+                MoveToLimited(spotA.To3D());
+
+
+                var jminions = EntityManager.MinionsAndMonsters.GetJungleMonsters(Variables._Player.ServerPosition, 1000, true);
+                foreach (var jungleMobs in jminions.Where(x => x.IsValidTarget(Variables._Player.AttackRange)))
+                {
+                    if (jungleMobs == null)
+                    {
+                        return;
+                    }
+                    if (Variables._Player.Distance(spotA.To3D()) == 0 && jungleMobs.BaseSkinName == "SRU_Blue" && jungleMobs.IsVisible  && jungleMobs != null )
+                    {
+                       Q.Cast(jungleMobs);
+                    }
+                }
             }
         }
 
