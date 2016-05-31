@@ -5,6 +5,10 @@ using EloBuddy.SDK;
 using EloBuddy.SDK.Enumerations;
 using EloBuddy.SDK.Events;
 using EloBuddy.SDK.Menu.Values;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
+using SharpDX;
 
 namespace Championship_Riven
 {
