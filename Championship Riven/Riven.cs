@@ -500,6 +500,13 @@ namespace Championship_Riven
                         Player.CastSpell(SpellSlot.W, Target.Position);
                     }
                 }
+                
+                if (ObjectManager.Player.Position.Distance(Target.ServerPosition) > Player.Instance.GetAutoAttackRange(Target) && ObjectManager.Player.Position.Distance(Target.ServerPosition) < 400)
+                {
+                    {
+                        Q.Cast(Player.Instance.Position.Extend(Target.ServerPosition, 400).To3D());
+                    }
+                }
             }
         }
 
