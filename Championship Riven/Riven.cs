@@ -10,7 +10,7 @@ namespace Championship_Riven
 {
     class Riven
     {
-        
+        public static Vector2 spotA = new Vector2(10922, 6908); 
         
         public static int CountQ;
         public static int LastQ;
