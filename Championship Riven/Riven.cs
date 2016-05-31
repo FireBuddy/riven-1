@@ -73,10 +73,10 @@ namespace Championship_Riven
         {
             if (ObjectManager.Player.Level <= 1)
             {
-                var allyinrange = EntityManager.Heroes.Allies.Count(h => h != null && !h.IsDead && h.Distance(Player.Instance) < 700)
+                
                 var lasthitmode = Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.JungleClear);
 
-                if (!lasthitmode)
+                if (!lasthitmode || RivenMenu.CheckBox(RivenMenu.Jungleclear, "UseWJG") )
                 {
                     return;
                 }
