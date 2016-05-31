@@ -69,6 +69,27 @@ namespace Championship_Riven
             Orbwalker.OnPostAttack += Orbwalker_OnPostAttack;
             Orbwalker.OnPreAttack += BeforeAttack;
         }
+        private static void BeforeAttack(AttackableUnit target, Orbwalker.PreAttackArgs args)
+        {
+            if (ObjectManager.Player.level <= 1)
+            {
+                var lasthitmode = Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Jungleclear);
+
+                if (lasthitmode)
+                {
+                    return;
+                }
+
+
+                if(target.Type == GameObjectType.obj_AI_Minion)
+                {
+                    {
+                        args.Process = false;
+                    }
+                }
+            }
+
+        }
         
 
        
