@@ -1039,7 +1039,7 @@ namespace Championship_Riven
 
             if (dmg < 10)
             {
-                return 3 * Player.Instance.TotalAttackDamage;
+                return 0 * Player.Instance.TotalAttackDamage;
             }
 
             dmg += R.IsReady() && !CheckUlt()
