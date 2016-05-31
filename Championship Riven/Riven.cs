@@ -70,22 +70,7 @@ namespace Championship_Riven
             Orbwalker.OnPreAttack += BeforeAttack;
         }
         
-        private static void BeforeAttack(AttackableUnit target, Orbwalker.PreAttackArgs args)
-        {
-            if (ObjectManager.Player.Level <= 1)
-            {
-                var lasthitmode = Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Jungleclear);
 
-                if (lasthitmode)
-                {
-                    return;
-                }
-
-                        
-                
-            }
-
-        }
        
   
           
