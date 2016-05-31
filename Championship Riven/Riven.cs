@@ -81,7 +81,7 @@ namespace Championship_Riven
                 }
 
 
-                if(target.Type == GameObjectType.obj_AI_Minion)
+                if(target.Type == GameObjectType.obj_Turret)
                 {
                     {
                         args.Process = false;
