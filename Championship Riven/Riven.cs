@@ -507,6 +507,7 @@ namespace Championship_Riven
                         Q.Cast(Player.Instance.Position.Extend(Target.ServerPosition, 400).To3D());
                     }
                 }
+                var cooldownq = ObjectManager.Player.Spellbook.GetSpell(SpellSlot.Q).Cooldown;
             }
         }
 
