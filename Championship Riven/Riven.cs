@@ -81,7 +81,7 @@ namespace Championship_Riven
                     return;
                 }
                 var allyinrange = HeroManager.Allies.Count(x => !x.IsMe && x.Distance(Player) <= 700);
-                if(target.Name == "SRU_RedMini10.1.3" || allyinrange > 0)
+                if(target == "SRU_RedMini10.1.3" || allyinrange > 0)
                 {
 
                     {
