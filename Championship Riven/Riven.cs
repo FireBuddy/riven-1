@@ -516,19 +516,7 @@ namespace Championship_Riven
             {
                 MoveToLimited(spotA.To3D());
 
-
-                var jminions = EntityManager.MinionsAndMonsters.GetJungleMonsters(Player.ServerPosition, 1000, true);
-                foreach (var jungleMobs in jminions.Where(x => x.IsValidTarget(Player.AttackRange)))
-                {
-                    if (jungleMobs == null)
-                    {
-                        return;
-                    }
-                    if (Variables._Player.Distance(spotA.To3D()) == 0 && jungleMobs.BaseSkinName == "SRU_Blue")
-                    {
-                        Q.Cast(jungleMobs);
-                    }
-                }
+                
             }
         }    
 
