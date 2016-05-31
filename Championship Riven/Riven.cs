@@ -510,7 +510,7 @@ namespace Championship_Riven
     
                 }
             }
-        }    
+            
         {
             if (Variables._Player.Distance(spotA) <= 600)
             {
@@ -524,9 +524,9 @@ namespace Championship_Riven
                     {
                         return;
                     }
-                    if (Variables._Player.Distance(spotA.To3D()) == 0 && jungleMobs.BaseSkinName == "SRU_Blue" && jungleMobs.IsVisible && Yasuo.E.IsReady() && jungleMobs != null && jungleMobs.IsValidTarget(Yasuo.E.Range) && Variables.CanCastE(jungleMobs))
+                    if (Variables._Player.Distance(spotA.To3D()) == 0 && jungleMobs.BaseSkinName == "SRU_Blue")
                     {
-                        Yasuo.E.Cast(jungleMobs);
+                        Q.Cast(jungleMobs);
                     }
                 }
             }
