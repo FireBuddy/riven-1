@@ -514,21 +514,21 @@ namespace Championship_Riven
                 }
             }
             {
-            if (Player.Level >= 1 )
+                if (player.Level >= 1 )
                 {
-                var jminions = EntityManager.MinionsAndMonsters.GetJungleMonsters(Player.Instance.ServerPosition, 1000, true);
-                foreach (var jungleMobs in jminions.Where(x => x.IsValidTarget(Player.Instance.AttackRange)))              
-                        {
-                            if (jungleMobs == null)
+                    var jminions = EntityManager.MinionsAndMonsters.GetJungleMonsters(Player.Instance.ServerPosition, 1000, true);
+                    foreach (var jungleMobs in jminions.Where(x => x.IsValidTarget(Player.Instance.AttackRange)))              
                             {
-                                return;
+                                if (jungleMobs == null)
+                                {
+                                    return;
+                                }
+                                if (jungleMobs.BaseSkinName == "SRU_Blue")
+                                {
+                                    E.Cast(jungleMobs);
+                                }
                             }
-                            if (jungleMobs.BaseSkinName == "SRU_Blue")
-                            {
-                                E.Cast(jungleMobs);
-                            }
-                        }
-                    
+                        
                 }   
             }
         }
