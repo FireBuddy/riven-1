@@ -16,7 +16,7 @@ namespace Championship_Riven
     {
         
         
-        
+        public static int LastCastW;
         public static int LastCastQ;
         public static int CountQ;
         public static int LastQ;
@@ -74,21 +74,8 @@ namespace Championship_Riven
         }
         
         
-        private static void Game_OnTick(EventArgs args)
-        {
-            if (LastCastQ + 7000 < Environment.TickCount)
-            {
-                CountQ = 0;
-            }
-            if (!Player.Instance.IsRecalling() && CountQ < 3 && LastCastQ + 7000 < Environment.TickCount && Player.Instance.HasBuff("RivenTriCleaveBuff"))
-            {
-                Player.CastSpell(SpellSlot.Q,
-                    Orbwalker.LastTarget != null && Orbwalker.LastAutoAttack - Environment.TickCount < 7000
-                        ? Orbwalker.LastTarget.Position
-                        : Game.CursorPos);
-            }
-        }
-        
+
+
         private static void BeforeAttack(AttackableUnit target, Orbwalker.PreAttackArgs args)
         {
             if (ObjectManager.Player.Level <= 1)
@@ -835,6 +822,31 @@ namespace Championship_Riven
                         }
                     }
                 }
+        {
+            if (!sender.IsMe) return;
+
+            if (args.SData.Name.ToLower().Contains(Riven.W.Name.ToLower()))
+            {
+                LastCastW = Environment.TickCount;
+                return;
+            }
+            if (args.SData.Name.ToLower().Contains(Riven.Q.Name.ToLower()))
+            {
+                LastCastQ = Environment.TickCount;
+                Core.DelayAction(() =>
+                {
+                    if (!Player.Instance.IsRecalling() && QCount < 2)
+                    {
+                        Player.CastSpell(SpellSlot.Q,
+                            Orbwalker.LastTarget != null && Orbwalker.LastAutoAttack - Environment.TickCount < 3000
+                                ? Orbwalker.LastTarget.Position
+                                : Game.CursorPos);
+                    }
+                }, 3480);
+                return;
+            }
+        }
+        
 
                 if(args.Slot == SpellSlot.E)
                 {
