@@ -14,7 +14,7 @@ namespace Championship_Riven
 {
     class Riven
     {
-        public static Vector2 spotA = new Vector2(10922, 6908); 
+        
         
         public static int CountQ;
         public static int LastQ;
@@ -71,10 +71,7 @@ namespace Championship_Riven
        
         public static void WallDash()
         {
-        if (Player.Distance(spotA) <= 600)
-         {
-             
-         }
+        var jminions = EntityManager.MinionsAndMonsters.GetJungleMonsters(Variables._Player.ServerPosition, 1000, true);
         }    
 
         private static bool HasHydra()
