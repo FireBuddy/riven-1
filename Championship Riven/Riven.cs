@@ -512,7 +512,7 @@ namespace Championship_Riven
             }
         }    
         {
-            if (Variables._Player.Distance(spotA) <= 600)
+            if (Player.Distance(spotA) <= 600)
             {
                 MoveToLimited(spotA.To3D());
 
