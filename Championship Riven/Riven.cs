@@ -59,6 +59,7 @@ namespace Championship_Riven
             Qss = new Item((int)ItemId.Quicksilver_Sash, 0);
             Mercurial = new Item((int)ItemId.Mercurial_Scimitar, 0);
 
+            Game.OnTick += Game_OnTick;
             DamageIndicator.Initialize(DamageTotal);
             Game.OnUpdate += Game_OnUpdate;
             Game.OnWndProc += Game_OnWndProc;
@@ -69,6 +70,23 @@ namespace Championship_Riven
             Orbwalker.OnPostAttack += Orbwalker_OnPostAttack;
             Orbwalker.OnPreAttack += BeforeAttack;
         }
+        
+        
+        private static void Game_OnTick(EventArgs args)
+        {
+            if (LastCastQ + 3600 < Environment.TickCount)
+            {
+                QCount = 0;
+            }
+            if (!Player.Instance.IsRecalling() && QCount < 3 && LastCastQ + 3480 < Environment.TickCount && Player.Instance.HasBuff("RivenTriCleaveBuff"))
+            {
+                Player.CastSpell(SpellSlot.Q,
+                    Orbwalker.LastTarget != null && Orbwalker.LastAutoAttack - Environment.TickCount < 3000
+                        ? Orbwalker.LastTarget.Position
+                        : Game.CursorPos);
+            }
+        }
+        
         private static void BeforeAttack(AttackableUnit target, Orbwalker.PreAttackArgs args)
         {
             if (ObjectManager.Player.Level <= 1)
