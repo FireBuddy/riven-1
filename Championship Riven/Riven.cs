@@ -508,8 +508,8 @@ namespace Championship_Riven
             }
             {
 
-                var jminions = EntityManager.MinionsAndMonsters.GetJungleMonsters(Variables._Player.ServerPosition, 1000, true);
-                foreach (var jungleMobs in jminions.Where(x => x.IsValidTarget(Variables._Player.AttackRange)))
+                var jminions = EntityManager.MinionsAndMonsters.GetJungleMonsters(Player.ServerPosition, 1000, true);
+                foreach (var jungleMobs in jminions.Where(x => x.IsValidTarget(Player.AttackRange)))
                 {
                     if (jungleMobs == null)
                     {
