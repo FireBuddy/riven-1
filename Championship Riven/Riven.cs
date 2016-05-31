@@ -74,7 +74,7 @@ namespace Championship_Riven
         {
             if (ObjectManager.Player.Level <= 1)
             {
-                var lasthitmode = Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.LastHit);
+                var lasthitmode = Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Jungleclear);
 
                 if (lasthitmode)
                 {
@@ -82,7 +82,7 @@ namespace Championship_Riven
                 }
 
 
-                if(target.Type == GameObjectType.obj_AI_Minion)
+                if(target.Name == "GameObjectType.obj_AI_Minion")
                 {
 
                     {
