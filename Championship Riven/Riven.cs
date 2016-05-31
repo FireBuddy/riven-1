@@ -510,16 +510,16 @@ namespace Championship_Riven
     
                 }
             }
-        }    
-        {
-            if (Player.Distance(spotA) <= 600)
+            
             {
-                MoveToLimited(spotA.To3D());
-
-                
-            }
-        }    
-
+                if (Player.Distance(spotA) <= 600)
+                {
+                    MoveToLimited(spotA.To3D());
+    
+                    
+                }
+            }    
+        }
         
 
         private static void Game_OnWndProc(WndEventArgs args)
