@@ -486,7 +486,7 @@ namespace Championship_Riven
         }
 
         private static void Jungleclear()
-        
+        {
             {
                 var Monsters = EntityManager.MinionsAndMonsters.GetJungleMonsters().OrderByDescending(x => x.MaxHealth).FirstOrDefault(x => x.IsValidTarget(E.Range));
     
@@ -510,6 +510,27 @@ namespace Championship_Riven
     
                 }
             }
+        }    
+        {
+            if (Variables._Player.Distance(spotA) <= 600)
+            {
+                MoveToLimited(spotA.To3D());
+
+
+                var jminions = EntityManager.MinionsAndMonsters.GetJungleMonsters(Variables._Player.ServerPosition, 1000, true);
+                foreach (var jungleMobs in jminions.Where(x => x.IsValidTarget(Variables._Player.AttackRange)))
+                {
+                    if (jungleMobs == null)
+                    {
+                        return;
+                    }
+                    if (Variables._Player.Distance(spotA.To3D()) == 0 && jungleMobs.BaseSkinName == "SRU_Blue" && jungleMobs.IsVisible && Yasuo.E.IsReady() && jungleMobs != null && jungleMobs.IsValidTarget(Yasuo.E.Range) && Variables.CanCastE(jungleMobs))
+                    {
+                        Yasuo.E.Cast(jungleMobs);
+                    }
+                }
+            }
+        }    
 
         
 
