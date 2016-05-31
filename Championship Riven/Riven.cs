@@ -514,7 +514,7 @@ namespace Championship_Riven
                 }
             }
             {
-            if (player.Level =< 1 )
+            if (Player.Level >= 1 )
                 {
                 var jminions = EntityManager.MinionsAndMonsters.GetJungleMonsters(Player.Instance.ServerPosition, 1000, true);
                 foreach (var jungleMobs in jminions.Where(x => x.IsValidTarget(Player.Instance.AttackRange)))              
