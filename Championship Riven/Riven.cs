@@ -522,14 +522,14 @@ namespace Championship_Riven
                             {
                                 if (jungleMobs == null)
                                 {
-                                    Orbwalker.DisableAttacking = false
+                                    
                                     return;
                                 }
-                                if (jungleMobs !== null)
+                                if (jungleMobs != null)
                                 {
                                         if (jungleMobs.Name == "SRU_RedMini10.1.3")
                                         {
-                                                Orbwalker.DisableAttacking = true
+                                                
                                                 Player.IssueOrder(GameObjectOrder.AttackUnit, jungleMobs);
                                         }
                                         else
