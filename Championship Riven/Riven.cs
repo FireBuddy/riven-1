@@ -552,7 +552,7 @@ namespace Championship_Riven
                                 }
                                 if (jungleMobs != null)
                                 {
-                                        if (jungleMobs.Name == "SRU_RedMini10.1.3" || "SRU_BlueMini1.1.2" )
+                                        if (jungleMobs.Name == ("SRU_RedMini10.1.3" || "SRU_BlueMini1.1.2"))
                                         {
                                                 
                                                 Player.IssueOrder(GameObjectOrder.AttackUnit, jungleMobs);
