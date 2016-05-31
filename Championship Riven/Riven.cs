@@ -78,7 +78,7 @@ namespace Championship_Riven
         {
             if (LastCastQ + 3600 < Environment.TickCount)
             {
-                QCount = 0;
+                CountQ = 0;
             }
             if (!Player.Instance.IsRecalling() && CountQ < 3 && LastCastQ + 3480 < Environment.TickCount && Player.Instance.HasBuff("RivenTriCleaveBuff"))
             {
