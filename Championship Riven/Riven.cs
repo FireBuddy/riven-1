@@ -16,6 +16,8 @@ namespace Championship_Riven
     {
         
         
+        
+        public static int LastCastQ;
         public static int CountQ;
         public static int LastQ;
         public static int LastW;
