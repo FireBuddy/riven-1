@@ -1032,15 +1032,21 @@ namespace Championship_Riven
             dmg += Q.IsReady()
                 ? QDamage(!CheckUlt()) * (3 - CountQ)
                 : 0;
-
+            passiveStacks += Q.IsReady()
+                ? (3 - CountQ)
+                : 0;
 
             dmg += W.IsReady()
                 ? WDamage()
                 : 0;
+            passiveStacks += W.IsReady()
+                ? 1
+                : 0;
+            passiveStacks += E.IsReady()
+                ? 1
+                : 0;
 
-
-
-            
+            dmg += PassiveDamage() * passiveStacks;
             dmg += (R.IsReady() && !CheckUlt() && !Player.Instance.HasBuff("RivenFengShuiEngine")
                 ? Player.Instance.TotalAttackDamage * 1.2
                 : Player.Instance.TotalAttackDamage) * passiveStacks;
