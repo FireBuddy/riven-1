@@ -67,6 +67,29 @@ namespace Championship_Riven
             Obj_AI_Base.OnPlayAnimation += Obj_AI_Base_OnPlayAnimation;
             Obj_AI_Base.OnProcessSpellCast += Obj_AI_Base_OnProcessSpellCast;
             Orbwalker.OnPostAttack += Orbwalker_OnPostAttack;
+            Orbwalker.OnPreAttack += BeforeAttack;
+        }
+        
+        private static void BeforeAttack(AttackableUnit target, Orbwalker.PreAttackArgs args)
+        {
+            if (ObjectManager.Player.Level <= 1)
+            {
+                var jungleclearmode = Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.JungleClear);
+
+                if (jungleclearmode)
+                {
+                    return;
+                }
+                var allyinrange = HeroManager.Allies.Count(x => !x.IsMe && x.Distance(Player) <= 700);
+                if(target.Name == "SRU_RedMini10.1.3" || allyinrange > 0)
+                {
+
+                    {
+                        args.Process = false;
+                    }
+                }
+            }
+
         }
        
   
