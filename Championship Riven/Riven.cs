@@ -510,7 +510,7 @@ namespace Championship_Riven
     
                 }
             }
-            
+        }    
         {
             if (Variables._Player.Distance(spotA) <= 600)
             {
