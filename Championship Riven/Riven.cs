@@ -71,7 +71,10 @@ namespace Championship_Riven
        
         public static void WallDash()
         {
-
+        if (Player.Distance(spotA) <= 600)
+         {
+             
+         }
         }    
 
         private static bool HasHydra()
