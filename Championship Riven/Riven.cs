@@ -78,7 +78,7 @@ namespace Championship_Riven
             {
                 QCount = 0;
             }
-            if (!Player.Instance.IsRecalling() && QCount < 3 && LastCastQ + 3480 < Environment.TickCount && Player.Instance.HasBuff("RivenTriCleaveBuff"))
+            if (!Player.Instance.IsRecalling() && CountQ < 3 && LastCastQ + 3480 < Environment.TickCount && Player.Instance.HasBuff("RivenTriCleaveBuff"))
             {
                 Player.CastSpell(SpellSlot.Q,
                     Orbwalker.LastTarget != null && Orbwalker.LastAutoAttack - Environment.TickCount < 3000
