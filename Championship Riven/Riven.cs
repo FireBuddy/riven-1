@@ -822,24 +822,7 @@ namespace Championship_Riven
                         }
                     }
                 }
-        {
-            if (!sender.IsMe) return;
 
-            {
-                LastCastQ = Environment.TickCount;
-                Core.DelayAction(() =>
-                {
-                    if (!Player.Instance.IsRecalling() && CountQ < 2)
-                    {
-                        Player.CastSpell(SpellSlot.Q,
-                            Orbwalker.LastTarget != null && Orbwalker.LastAutoAttack - Environment.TickCount < 3000
-                                ? Orbwalker.LastTarget.Position
-                                : Game.CursorPos);
-                    }
-                }, 3480);
-                return;
-            }
-        }
         
 
                 if(args.Slot == SpellSlot.E)
@@ -885,6 +868,31 @@ namespace Championship_Riven
                         }
                     }
                 }
+            }
+        }
+        {
+            if (!sender.IsMe) return;
+
+            if (args.SData.Name.ToLower().Contains(Riven.W.Name.ToLower()))
+            {
+                LastCastW = Environment.TickCount;
+                return;
+            }
+            if (args.SData.Name.ToLower().Contains(Riven.Q.Name.ToLower()))
+            {
+                LastCastQ = Environment.TickCount;
+                
+                Core.DelayAction(() =>
+                {
+                    if (!Player.Instance.IsRecalling() && CountQ < 2)
+                    {
+                        Player.CastSpell(SpellSlot.Q,
+                            Orbwalker.LastTarget != null && Orbwalker.LastAutoAttack - Environment.TickCount < 3000
+                                ? Orbwalker.LastTarget.Position
+                                : Game.CursorPos);
+                    }
+                }, 3480);
+                return;
             }
         }
 
