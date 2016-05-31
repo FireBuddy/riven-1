@@ -73,7 +73,7 @@ namespace Championship_Riven
         {
             if (ObjectManager.Player.Level <= 1)
             {
-               0)
+               
                 var lasthitmode = Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.JungleClear);
 
                 if (!lasthitmode)
