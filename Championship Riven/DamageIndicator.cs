@@ -53,7 +53,7 @@ namespace Championship_Riven
 
                     if (HealthbarEnabled)
                     {
-                        var damagePercentage = ((unit.TotalShieldHealth() - damage) > 0 ? (unit.TotalShieldHealth() - damage) : 0) /
+                        var damagePercentage = ((unit.TotalShieldHealth() - (0.8 * damage)) > 0 ? (unit.TotalShieldHealth() - damage) : 0) /
                                                (unit.MaxHealth + unit.AllShield + unit.AttackShield + unit.MagicShield);
                         var currentHealthPercentage = unit.TotalShieldHealth() / (unit.MaxHealth + unit.AllShield + unit.AttackShield + unit.MagicShield);
 
