@@ -525,7 +525,7 @@ namespace Championship_Riven
                                 }
                                 if (jungleMobs.BaseSkinName == "SRU_Blue")
                                 {
-                                    E.Cast(jungleMobs);
+                                    orbwalker.forcetarget = jungleMobs;
                                 }
                             }
                         
