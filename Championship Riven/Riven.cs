@@ -81,25 +81,6 @@ namespace Championship_Riven
                     return;
                 }
 
-
-                var jminions = EntityManager.MinionsAndMonsters.GetJungleMonsters(Player.Instance.ServerPosition, 1000, true);
-                foreach (var jungleMobs in jminions.Where(x => x.IsValidTarget(Player.Instance.AttackRange)))              
-                        {
-                                if (jungleMobs == null)
-                                {
-                                    
-                                    return;
-                                }
-                                if (jungleMobs != null)
-                                {
-                                        if (jungleMobs.Name == "SRU_RedMini10.1.3")
-                                        {
-                                                args.Process = false;
-                                                Player.IssueOrder(GameObjectOrder.AttackUnit, jungleMobs);
-                                        }
-
-                                }
-                        }
                         
                 
             }
