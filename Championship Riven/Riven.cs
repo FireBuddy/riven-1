@@ -71,7 +71,7 @@ namespace Championship_Riven
        
         public static void WallDash()
         {
-        var jminions = EntityManager.MinionsAndMonsters.GetJungleMonsters(Variables._Player.ServerPosition, 1000, true);
+        var jminions = EntityManager.MinionsAndMonsters.GetJungleMonsters(Player.ServerPosition, 1000, true);
         }    
 
         private static bool HasHydra()
