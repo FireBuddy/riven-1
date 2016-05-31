@@ -71,24 +71,7 @@ namespace Championship_Riven
        
         public static void WallDash()
         {
-            if (Variables._Player.Distance(spotA) <= 600)
-            {
-                MoveToLimited(spotA.To3D());
 
-
-                var jminions = EntityManager.MinionsAndMonsters.GetJungleMonsters(Variables._Player.ServerPosition, 1000, true);
-                foreach (var jungleMobs in jminions.Where(x => x.IsValidTarget(Variables._Player.AttackRange)))
-                {
-                    if (jungleMobs == null)
-                    {
-                        return;
-                    }
-                    if (Variables._Player.Distance(spotA.To3D()) == 0 && jungleMobs.BaseSkinName == "SRU_Blue" )
-                    {
-                        
-                    }
-                }
-            }
         }    
 
         private static bool HasHydra()
