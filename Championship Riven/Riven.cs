@@ -73,7 +73,7 @@ namespace Championship_Riven
         {
             if (ObjectManager.Player.Level <= 1)
             {
-                var allyinrange = EntityManager.Heroes.Allies.Count(x => !x.IsMe && x.Distance(Player) <= 700);
+                var allyinrange = EntityManager.Heroes.Allies.Count(x => !x.IsMe && x.Distance(Player) <= R2.Range);
                 var lasthitmode = Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.JungleClear);
 
                 if (!lasthitmode || allyinrange > 0)
