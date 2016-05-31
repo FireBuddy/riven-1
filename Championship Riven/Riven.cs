@@ -524,12 +524,19 @@ namespace Championship_Riven
                                 {
                                     return;
                                 }
-                                if (jungleMobs.Name == "SRU_RedMini10.1.3")
+                                if (!jungleMobs == null)
                                 {
-                                    Orbwalker.DisableAttacking = (jungleMobs.Name == "SRU_RedMini10.1.3")
-                                    Player.IssueOrder(GameObjectOrder.AttackUnit, jungleMobs);
+                                        if (jungleMobs.Name == "SRU_RedMini10.1.3")
+                                            {
+                                    
+                                                Player.IssueOrder(GameObjectOrder.AttackUnit, jungleMobs);
+                                            }
+                                        else
+                                           {
+                                               Orbwalker.DisableAttacking = true
+                                           }
                                 }
-                            }
+                           }
                         
                 }   
             }
