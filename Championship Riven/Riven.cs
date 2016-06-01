@@ -546,8 +546,8 @@ namespace Championship_Riven
                         Player.CastSpell(SpellSlot.Q, Target.Position);
                         
                         {
-                           Core.DelayAction( () => Player.CastSpell(SpellSlot.W, Target.Position),500);
-                           Core.DelayAction( () => E.Cast(EPos),500);
+                           Core.DelayAction( () => Player.CastSpell(SpellSlot.W, Target.Position),200);
+                           Core.DelayAction( () => E.Cast(EPos),200);
                         }
 
                     }
