@@ -583,13 +583,7 @@ namespace Championship_Riven
                 {
                     return;
                 }
-                var location =
-                    GetBestCircularFarmLocation(
-                        EntityManager.MinionsAndMonsters.EnemyMinions.Where(x => x.Distance(Player.Instance) <= 300)
-                            .Select(xm => xm.ServerPosition.To2D())
-                            .ToList(),
-                        100,
-                        200);
+                var location =GetBestCircularFarmLocation(EntityManager.MinionsAndMonsters.EnemyMinions.Where(x => x.Distance(Player.Instance) <= 300).Select(xm => xm.ServerPosition.To2D()).ToList(),100,200);
             }    
         }
         private static void Jungleclear()
