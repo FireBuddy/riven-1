@@ -513,7 +513,7 @@ namespace Championship_Riven
         
         private static void Harass()
         {
-             Player.CastSpell(SpellSlot.Q);
+             
             var Target = TargetSelector.GetTarget(R2.Range, DamageType.Physical);
             var EPos = Player.Instance.ServerPosition + (Player.Instance.ServerPosition - Target.ServerPosition).Normalized() * 300;
             if (Target != null)
@@ -539,15 +539,15 @@ namespace Championship_Riven
                     }
                 }
                 
-                if (CountQ == 2 && Q.IsReady() && E.IsReady() && W.IsReady() && Target.IsValidTarget(300))
+                if (CountQ == 2 && Q.IsReady() && E.IsReady() && W.IsReady() && Target.IsValidTarget(450)
                 {
                     
                     {
                         Player.CastSpell(SpellSlot.Q, Target.Position);
                         
                         {
-                           Core.DelayAction( () => Player.CastSpell(SpellSlot.W, Target.Position),100);
-                           Core.DelayAction( () => E.Cast(EPos),100);
+                           Core.DelayAction( () => Player.CastSpell(SpellSlot.W, Target.Position),500);
+                           Core.DelayAction( () => E.Cast(EPos),500);
                         }
 
                     }
@@ -821,6 +821,11 @@ namespace Championship_Riven
             {
                 Jungleclear();
             }
+            if(Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Harass))
+            {
+                Harass();
+            }
+
         }
 
         private static void Obj_AI_Base_OnProcessSpellCast(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
