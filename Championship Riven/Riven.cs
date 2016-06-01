@@ -861,7 +861,7 @@ namespace Championship_Riven
             if (sender.IsMe || sender.IsAlly || sender == null)
                 return;
 
-            var EPos = Player.Instance.ServerPosition + (Player.Instance.ServerPosition - sender.ServerPosition).Normalized() * 300;
+            var EPos = Player.Instance.ServerPosition + (Player.Instance.ServerPosition - sender.ServerPosition);
 
             if(Player.Instance.IsValidTarget(args.SData.CastRange))
             {
