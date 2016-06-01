@@ -513,7 +513,7 @@ namespace Championship_Riven
         
         private static void Harass()
         {
-             Player.CastSpell(SpellSlot.Q, Target.Position);
+             Player.CastSpell(SpellSlot.Q);
             var Target = TargetSelector.GetTarget(R2.Range, DamageType.Physical);
             var EPos = Player.Instance.ServerPosition + (Player.Instance.ServerPosition - Target.ServerPosition).Normalized() * 300;
             if (Target != null)
