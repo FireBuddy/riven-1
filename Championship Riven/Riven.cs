@@ -539,7 +539,7 @@ namespace Championship_Riven
                     }
                 }
                 
-                if (CountQ == 2 && Q.IsReady() && E.IsReady() && W.IsReady() && Target.IsValidTarget(450)
+                if (CountQ == 2 && Q.IsReady() && E.IsReady() && W.IsReady() && Target.IsValidTarget(450))
                 {
                     
                     {
