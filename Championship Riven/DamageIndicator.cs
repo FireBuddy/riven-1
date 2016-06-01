@@ -65,7 +65,7 @@ namespace Championship_Riven
 
                     if (PercentEnabled)
                     {
-                        Drawing.DrawText(new Vector2(unit.HPBarPosition.X, unit.HPBarPosition.Y + 30), Color.Yellow, string.Concat(Math.Ceiling((damage / unit.TotalShieldHealth()) * 100), "%"), 10);
+                        Drawing.DrawText(new Vector2(unit.HPBarPosition.X - 2, unit.HPBarPosition.Y + 30), Color.Yellow, string.Concat(Math.Ceiling((damage / unit.TotalShieldHealth()) * 100), "%"), 10);
                     }
                 }
             }
