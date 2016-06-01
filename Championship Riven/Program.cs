@@ -8,6 +8,7 @@ namespace Championship_Riven
 {
     class Program
     {
+        public static int CountQ;
         public static Text Status;
 
         static void Main(string[] args)
