@@ -504,17 +504,10 @@ namespace Championship_Riven
                 if (ObjectManager.Player.Position.Distance(Target.ServerPosition) > Player.Instance.GetAutoAttackRange(Target) && ObjectManager.Player.Position.Distance(Target.ServerPosition) < 400)
                 {
                     {
-                        Q.Cast(Player.Instance.Position.Extend(Target.ServerPosition, 400).To3D());
+                        Q.Cast(Player.Instance.Position.Extend(Target.ServerPosition, 350).To3D());
                     }
                 }
-                var cooldownq = ObjectManager.Player.Spellbook.GetSpell(SpellSlot.Q).Cooldown;
-                if (CountQ == 0 && Q.IsReady())
-                {
-                    if (!Target.IsValidTarget(450) && !Player.HasBuff("Valor") && cooldownq < 9500)
-                    {
-                        Player.CastSpell(SpellSlot.Q, Game.CursorPos);
-                    }
-                }
+
             }
         }
 
