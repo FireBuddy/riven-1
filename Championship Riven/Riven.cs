@@ -580,9 +580,9 @@ namespace Championship_Riven
         {
         var bestFarm =
                 Utils.GetBestCircularFarmLocation(
-                    EntityManager.MinionsAndMonsters.EnemyMinions.Where(x => x.Distance(Player) <= Spells.Q.Range)
+                    EntityManager.MinionsAndMonsters.EnemyMinions.Where(x => x.Distance(Player) <= SpellSlot.Q.Range)
                         .Select(xm => xm.ServerPosition.To2D())
-                        .ToList(), Spells.Q.Width, Spells.Q.Range);
+                        .ToList(), SpellSlot.Q.Width, SpellSlot.Q.Range);
         }  
         
         private static void Jungleclear()
