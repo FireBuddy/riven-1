@@ -573,6 +573,22 @@ namespace Championship_Riven
                 }
             }
         }
+        private static void Lasthit()
+        {
+            
+            var Minions = EntityManager.MinionsAndMonsters.GetCircularFarmLocation(Minion, Q.Range, (int)Q.Range);
+
+            if (Minions == null)
+                return;
+
+            
+            
+            if (Minions.HitNumber >= RivenMenu.Slider(RivenMenu.Laneclear, "UseWLaneMin"))
+            {
+                    Q.Cast(Minions.Location);
+            }
+            
+        }
 
         private static void Jungleclear()
         {
@@ -816,6 +832,10 @@ namespace Championship_Riven
             if(Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.LaneClear))
             {
                 Laneclear();
+            }
+            if(Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.LastHit))
+            {
+                LastHit();
             }
 
             if(Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.JungleClear))
