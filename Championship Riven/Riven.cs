@@ -578,17 +578,10 @@ namespace Championship_Riven
 
             
         {
-            foreach (var minions in EntityManager.MinionsAndMonsters.Get(EntityManager.MinionsAndMonsters.EntityType.Both,EntityManager.UnitTeam.Enemy,Player.Instance.Position,Spells.Q.Range))
-            {
-                if (Spells.Q.IsReady() && Checker.LastHitUseQ)
-                {
-                    if (Prediction.Health.GetPrediction(minions, (int)0.25)
-                        <= player.GetSpellDamage(minions, SpellSlot.Q))
-                    {
-                        Spells.Q.Cast(minions);
-                    }
-                }   
-            }
+        var location =
+                    GetBestCircularFarmLocation(
+                        EntityManager.MinionsAndMonsters.GetJungleMonsters())
+        
         }  
         
         private static void Jungleclear()
