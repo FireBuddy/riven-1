@@ -542,7 +542,7 @@ namespace Championship_Riven
                 var EPos = Player.Instance.ServerPosition + (Player.Instance.ServerPosition - Target.ServerPosition).Normalized() * 300;
                 if (CountQ == 2 && Q.IsReady()  && Target.IsValidTarget(450))
                 {
-                    Player.CastSpell(SpellSlot.E,EPos);
+                
                     {
                         Player.CastSpell(SpellSlot.Q, Target.Position);
                         
