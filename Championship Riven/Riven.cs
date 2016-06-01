@@ -515,7 +515,7 @@ namespace Championship_Riven
         {
              
             var Target = TargetSelector.GetTarget(R2.Range, DamageType.Physical);
-            var EPos = Player.Instance.ServerPosition + (Player.Instance.ServerPosition - Target.ServerPosition).Normalized() * 300;
+            
             if (Target != null)
             {
                 if (Player.Instance.CountEnemiesInRange(Hydra.Range) > 0)
@@ -539,6 +539,7 @@ namespace Championship_Riven
                     }
                 }
                 
+                var EPos = Player.Instance.ServerPosition + (Player.Instance.ServerPosition - Target.ServerPosition).Normalized() * 300;
                 if (CountQ == 2 && Q.IsReady()  && Target.IsValidTarget(450))
                 {
                     
@@ -547,7 +548,7 @@ namespace Championship_Riven
                         
                         {
                            Core.DelayAction( () => Player.CastSpell(SpellSlot.W),1000);
-                           Core.DelayAction( () => E.Cast(EPos),1000);
+                           Core.DelayAction( () => E.Cast(EPos),50);
                         }
 
                     }
