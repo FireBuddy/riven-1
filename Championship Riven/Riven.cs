@@ -674,10 +674,10 @@ namespace Championship_Riven
                         Q.Cast(target.Position);
                     }
 
-                    if (CountQ == 2 || !Orbwalker.IsAutoAttacking)
-                    {
-                        Q.Cast(target.Position);
-                    }
+                   // if (CountQ == 2 || !Orbwalker.IsAutoAttacking)
+                    //{
+                     //   Q.Cast(target.Position);
+                    //}
                 }
             }
 
