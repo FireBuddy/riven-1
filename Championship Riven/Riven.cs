@@ -24,7 +24,7 @@ namespace Championship_Riven
         public static int LastW;
         public static int LastE;
 
-        public static Spell.Skillshot Q { get; private set; }
+        public static Spell.Skillshot Q;
         public static Spell.Active W;
         public static Spell.Skillshot E;
         public static Spell.Active R;
@@ -585,11 +585,11 @@ namespace Championship_Riven
                 }
                 var location =
                     GetBestCircularFarmLocation(
-                        EntityManager.MinionsAndMonsters.EnemyMinions.Where(x => x.Distance(Player.Instance) <= Q.Range)
+                        EntityManager.MinionsAndMonsters.EnemyMinions.Where(x => x.Distance(Player.Instance) <= 300)
                             .Select(xm => xm.ServerPosition.To2D())
                             .ToList(),
-                        Q.Width,
-                        Q.Range);
+                        100,
+                        200);
             }    
         }
         private static void Jungleclear()
