@@ -15,7 +15,7 @@ namespace Championship_Riven
         public delegate float DamageToUnitDelegate(AIHeroClient hero);
         private static DamageToUnitDelegate DamageToUnit { get; set; }
 
-        private static Vector2 BarOffset = new Vector2(0, 16);
+        private static Vector2 BarOffset = new Vector2(-5, 16);
 
         private static Color _drawingColor;
         public static Color DrawingColor
