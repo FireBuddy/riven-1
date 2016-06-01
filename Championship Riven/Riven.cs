@@ -575,6 +575,15 @@ namespace Championship_Riven
         }
         private static void LastHit()
         {
+            
+            {
+                var minions1 = EntityManager.MinionsAndMonsters.EnemyMinions;
+                if (minions1 == null || !minions1.Any())
+                {
+                    return;
+                }
+
+            }    
         }
         private static void Jungleclear()
         {
