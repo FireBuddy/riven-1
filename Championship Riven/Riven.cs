@@ -575,17 +575,22 @@ namespace Championship_Riven
             }
         }
         private static void LastHit()
-        {
+
             
+        {
+            foreach (var minions in EntityManager.MinionsAndMonsters.Get(EntityManager.MinionsAndMonsters.EntityType.Both,EntityManager.UnitTeam.Enemy,Player.Instance.Position,Spells.Q.Range))
             {
-                var minions1 = EntityManager.MinionsAndMonsters.EnemyMinions;
-                if (minions1 == null || !minions1.Any())
+                if (Spells.Q.IsReady() && Checker.LastHitUseQ)
                 {
-                    return;
-                }
-                var location =GetBestCircularFarmLocation(EntityManager.MinionsAndMonsters.EnemyMinions.Where(x => x.Distance(Player.Instance) <= 300).Select(xm => xm.ServerPosition.To2D()).ToList(),100,200);
-            }    
-        }
+                    if (Prediction.Health.GetPrediction(minions, (int)0.25)
+                        <= player.GetSpellDamage(minions, SpellSlot.Q))
+                    {
+                        Spells.Q.Cast(minions);
+                    }
+                }   
+            }
+        }  
+        
         private static void Jungleclear()
         {
             {
