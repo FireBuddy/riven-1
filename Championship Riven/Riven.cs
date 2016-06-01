@@ -573,7 +573,7 @@ namespace Championship_Riven
                 }
             }
         }
-        private static void Lasthit()
+        private static void LastHit()
         {
             {
                 var minions1 = EntityManager.MinionsAndMonsters.EnemyMinions;
