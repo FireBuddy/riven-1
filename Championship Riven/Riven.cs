@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using SharpDX;
+using EloBuddy.SDK.Rendering;
 
 namespace Championship_Riven
 {
