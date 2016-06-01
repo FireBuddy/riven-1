@@ -510,6 +510,54 @@ namespace Championship_Riven
 
             }
         }
+        
+        private static void Harass()
+        {
+            var Target = TargetSelector.GetTarget(R2.Range, DamageType.Physical);
+            var EPos = Player.Instance.ServerPosition + (Player.Instance.ServerPosition - sender.ServerPosition).Normalized() * 300;
+            if (Target != null)
+            {
+                if (Player.Instance.CountEnemiesInRange(Hydra.Range) > 0)
+                {
+                    if (HasHydra())
+                    {
+                        Hydra.Cast();
+                    }
+
+                    if (HasTiamat())
+                    {
+                        Tiamat.Cast();
+                    }
+                }
+
+                if (HasYoumu())
+                {
+                    if (Target.Health <= RivenMenu.Slider(RivenMenu.Items, "YoumuHealth"))
+                    {
+                        Youmu.Cast();
+                    }
+                }
+                
+                if (CountQ == 2 && Q.IsReady() && E.IsReady() && W.IsReady() && Target.IsValidTarget(450))
+                {
+                    
+                    {
+                        Player.CastSpell(SpellSlot.Q, Target.Position);
+                        if (!Target.CanMove)
+                        {
+                           Core.DelayAction( () => 
+                           Player.CastSpell(SpellSlot.W, Target.Position),
+                           E.Cast(Epos),
+                           300 );
+                        }
+
+                        
+                        
+                    }
+                }
+
+            }
+        }
 
         private static void Laneclear()
         {
