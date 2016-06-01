@@ -539,7 +539,7 @@ namespace Championship_Riven
                     }
                 }
                 
-                var EPos = Player.Instance.ServerPosition + (Player.Instance.ServerPosition - Target.ServerPosition).Normalized() * 300;
+                var EPos = Player.Instance.ServerPosition + (Player.Instance.ServerPosition - Target.ServerPosition);
                 if (CountQ == 2 && Q.IsReady()  && Target.IsValidTarget(450))
                 {
                 
@@ -547,7 +547,7 @@ namespace Championship_Riven
                         Player.CastSpell(SpellSlot.Q, Target.Position);
                         
                         {
-                           Core.DelayAction( () => Player.CastSpell(SpellSlot.E, Epos.Position),1000);
+                           Core.DelayAction( () => Player.CastSpell(SpellSlot.E, EPos),1000);
                            Core.DelayAction( () => Player.CastSpell(SpellSlot.W),1100);
                         }
 
