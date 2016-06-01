@@ -575,14 +575,17 @@ namespace Championship_Riven
             }
         }
         private static void LastHit()
-
-            
         {
-        var bestFarm =
-                Utils.GetBestCircularFarmLocation(
-                    EntityManager.MinionsAndMonsters.EnemyMinions.Where(x => x.Distance(Player) <= SpellSlot.Q.Range)
-                        .Select(xm => xm.ServerPosition.To2D())
-                        .ToList(), SpellSlot.Q.Width, SpellSlot.Q.Range);
+                var location =
+                    GetBestCircularFarmLocation(
+                        EntityManager.MinionsAndMonsters.EnemyMinions.Where(
+                            x =>
+                            x.Distance(player.Instance) <= Q.Range && Orbwalker.LastTarget.NetworkId != x.NetworkId && !x.IsDead && x.IsValid
+                            && Prediction.Health.GetPrediction(x, (int)(Q.CastDelay = 1000)) < (0.93 * player.GetSpellDamage(x, SpellSlot.Q)))
+                            .Select(xm => xm.ServerPosition.To2D())
+                            .ToList(),
+                        Q.Width + 5,
+                        Q.Range);
         }  
         
         private static void Jungleclear()
