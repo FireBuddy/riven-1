@@ -514,7 +514,7 @@ namespace Championship_Riven
         private static void Harass()
         {
             var Target = TargetSelector.GetTarget(R2.Range, DamageType.Physical);
-            var EPos = Player.Instance.ServerPosition + (Player.Instance.ServerPosition - sender.ServerPosition).Normalized() * 300;
+            var EPos = Player.Instance.ServerPosition + (Player.Instance.ServerPosition - Target.ServerPosition).Normalized() * 300;
             if (Target != null)
             {
                 if (Player.Instance.CountEnemiesInRange(Hydra.Range) > 0)
