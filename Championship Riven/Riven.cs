@@ -402,7 +402,7 @@ namespace Championship_Riven
 
                     if (FocusTarget.IsValidTarget(R2.Range))
                     {
-                        if (RDamage(FocusTarget, FocusTarget.Health) * 0.80 >= FocusTarget.Health)
+                        if (RDamage(FocusTarget, FocusTarget.ShieldHealth) * 0.80 >= FocusTarget.Health)
                         {
                             var RPred = R2.GetPrediction(FocusTarget);
 
