@@ -538,15 +538,15 @@ namespace Championship_Riven
                     }
                 }
                 
-                if (CountQ == 2 && Q.IsReady() && E.IsReady() && W.IsReady() && Target.IsValidTarget(450))
+                if (CountQ == 2 && Q.IsReady() && E.IsReady() && W.IsReady() && Target.IsValidTarget(300))
                 {
                     
                     {
                         Player.CastSpell(SpellSlot.Q, Target.Position);
                         if (!Target.CanMove)
                         {
-                           Core.DelayAction( () => Player.CastSpell(SpellSlot.W, Target.Position),300);
-                           Core.DelayAction( () => E.Cast(EPos),300);
+                           Core.DelayAction( () => Player.CastSpell(SpellSlot.W, Target.Position),100);
+                           Core.DelayAction( () => E.Cast(EPos),100);
                         }
 
                     }
