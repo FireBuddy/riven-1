@@ -597,6 +597,16 @@ namespace Championship_Riven
                         Youmu.Cast();
                     }
                 }
+                if(Q.IsReady() && CountQ <2)
+                {
+                    if(Target.IsValidTarget(Q.Range + 300) && !Target.IsDead )
+                    {
+
+                        if(Player.Instance.IsFacing(Target) && ObjectManager.Player.Position.Distance(Target.ServerPosition) > 250 )
+                        {
+                           
+                            Q.Cast(Player.Instance.Position.Extend(Target.ServerPosition, 200).To3D());
+                        }
                 
                 var EPos = Player.Instance.ServerPosition + (Player.Instance.ServerPosition - Target.ServerPosition);
                 if (Player.Instance.IsFacing(Target) && CountQ == 2 && Q.IsReady()  && Target.IsValidTarget(400))
