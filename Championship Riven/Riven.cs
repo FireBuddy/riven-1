@@ -101,7 +101,7 @@ namespace Championship_Riven
             {
                 if (Riven.W.IsReady())
                 {
-                    Circle.Draw(Color.DarkBlue, Riven.W.Range, Player.Instance.Position);
+                    Circle.Draw(Color.White, Riven.W.Range, Player.Instance.Position);
                 }
             }
 
@@ -109,7 +109,7 @@ namespace Championship_Riven
             {
                 if (Riven.E.IsReady())
                 {
-                    Circle.Draw(Color.DarkBlue, Riven.E.Range, Player.Instance.Position);
+                    Circle.Draw(Color.Black, Riven.E.Range, Player.Instance.Position);
                 }
             }
 
