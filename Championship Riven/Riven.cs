@@ -581,13 +581,14 @@ namespace Championship_Riven
 
             foreach (var Minion in Minions)
             {
-                if(Q.IsReady())
+                if(CountQ = 0 && Q.IsReady())
                 {
                     if(Minion.IsValidTarget(Q.Range + 200) )
                     {
-                        if(Minion.Health - SpellQDamage(Minion, Minion.Health) * 1.2 <= 0)
+                        if(Minion.Health - SpellQDamage(Minion, Minion.Health) * 1.4 <= 0)
                         {
-                           Q.Cast(Minion);
+                           Q.Cast(Player.Instance.Position.Extend(Minion.ServerPosition,250 ).To3D());
+                           Core.DelayAction( () => Player.CastSpell(SpellSlot.Q, Minion),300);
                         }
                         
                     }
