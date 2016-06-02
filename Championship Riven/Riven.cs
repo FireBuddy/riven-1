@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using EloBuddy;
 using EloBuddy.SDK;
@@ -577,16 +577,15 @@ namespace Championship_Riven
         }
         private static void LastHit()
         {
-            var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, 600);
+            var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, 700);
 
             foreach (var Minion in Minions)
             {
                 if(CountQ => 0 && Q.IsReady())
                 {
-                    if(Minion.IsValidTarget(600))
+                    if(Minion.IsValidTarget(700) )
                     {
-                       
-                        if(Minion.Health - SpellQDamage(Minion, Minion.Health) * 2 <= 0)
+                        if(Minion.Health - SpellQDamage(Minion, Minion.Health) * 2.0 <= 0)
                         {
                             Q.Cast(Player.Instance.Position.Extend(Minion.ServerPosition,250 ).To3D());  
                            
