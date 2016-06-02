@@ -585,7 +585,7 @@ namespace Championship_Riven
                 {
                     if(Minion.IsValidTarget(Q.Range))
                     {
-                        if(Minion.Health - SpellQDamage(Minion, Minion.Health) <= 0)
+                        if(Minion.Health - RDamage(Minion, Minion.Health) <= 0)
                         {
                            Q.Cast(Minion);
                         }
