@@ -568,7 +568,7 @@ namespace Championship_Riven
 
             if(RivenMenu.CheckBox(RivenMenu.Laneclear, "UseWLane"))
             {
-                if (Minions.HitNumber >= RivenMenu.Slider(RivenMenu.Laneclear, "UseWLaneMin"))
+                if (Minion.HitNumber >= RivenMenu.Slider(RivenMenu.Laneclear, "UseWLaneMin"))
                 {
                     W.Cast();
                 }
@@ -584,9 +584,9 @@ namespace Championship_Riven
 
             if(RivenMenu.CheckBox(RivenMenu.Laneclear, "UseWLane"))
             {
-                if (Minions.HitNumber >= RivenMenu.Slider(RivenMenu.Laneclear, "UseWLaneMin"))
+                if (Minion.HitNumber >= RivenMenu.Slider(RivenMenu.Laneclear, "UseWLaneMin"))
                 {
-                   Player.CastSpell(SpellSlot.Q, Minions.Position);
+                   Player.CastSpell(SpellSlot.Q, Minion.Position);
                 }
             }
         }  
