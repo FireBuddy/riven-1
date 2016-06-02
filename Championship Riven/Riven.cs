@@ -574,7 +574,7 @@ namespace Championship_Riven
                     W.Cast();
                 }
             }
-
+        }
         private static void LastHit()
         {
             var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, Q.Range + 300);
@@ -590,7 +590,7 @@ namespace Championship_Riven
 
                         if(ObjectManager.Player.Position.Distance(Minion.ServerPosition) > 350 && Minion.Health - SpellQDamage(Minion, Minion.Health) * 2 <= 0)
                         {
-                           MoveToLimited(QPos.To3D());;
+                           MoveToLimited(QPos);
 
                             Q.Cast();
                             Q.Cast();
