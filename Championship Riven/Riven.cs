@@ -583,7 +583,7 @@ namespace Championship_Riven
             {
                 if(Q.IsReady())
                 {
-                    if(Minion.IsValidTarget(Q.Range) && Orbwalker.LastTarget.NetworkId != Minion.NetworkId)
+                    if(Minion.IsValidTarget(Q.Range) )
                     {
                         if(Minion.Health - SpellQDamage(Minion, Minion.Health) <= 0)
                         {
