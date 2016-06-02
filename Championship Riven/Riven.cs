@@ -585,7 +585,7 @@ namespace Championship_Riven
                 {
                     if(Minion.IsValidTarget(Q.Range + 400) )
                     {
-                        if(Minion.Health - SpellQDamage(Minion, Minion.Health) * 4 <= 0)
+                        if(Orbwalker.LastTarget.NetworkId != Minion.NetworkId && Minion.Health - SpellQDamage(Minion, Minion.Health) * 2 <= 0)
                         {
                             Q.Cast(Player.Instance.Position.Extend(Minion.ServerPosition,200 ).To3D());
                             return;
