@@ -481,7 +481,7 @@ namespace Championship_Riven
                 
                 if (CountQ == 2 && Q.IsReady())
                 {
-                    if (Target.IsValidTarget(450) && Target.CanMove && !Player.HasBuff("Valor"))
+                    if (Player.Instance.IsFacing(Target) && Target.IsValidTarget(450) && Target.CanMove && !Player.HasBuff("Valor"))
                     {
                         Player.CastSpell(SpellSlot.Q, Target.Position);
                     }
@@ -503,10 +503,10 @@ namespace Championship_Riven
                     }
                 }
                 
-                if (ObjectManager.Player.Position.Distance(Target.ServerPosition) > Player.Instance.GetAutoAttackRange(Target) && ObjectManager.Player.Position.Distance(Target.ServerPosition) < 400)
+                if (Player.Instance.IsFacing(Target) && ObjectManager.Player.Position.Distance(Target.ServerPosition) > Player.Instance.GetAutoAttackRange(Target) && ObjectManager.Player.Position.Distance(Target.ServerPosition) < 400)
                 {
                     {
-                        Q.Cast(Player.Instance.Position.Extend(Target.ServerPosition, 350).To3D());
+                        Q.Cast(Player.Instance.Position.Extend(Target.ServerPosition, 250).To3D());
                     }
                 }
 
