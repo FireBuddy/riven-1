@@ -587,7 +587,7 @@ namespace Championship_Riven
                     {
                         if(Minion.Health - SpellQDamage(Minion, Minion.Health) * 1.4 <= 0)
                         {
-                           
+                            Q.Cast(Player.Instance.Position.Extend(Minion.ServerPosition,250 ).To3D());  
                            
                         }
                         
