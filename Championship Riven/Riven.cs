@@ -590,7 +590,7 @@ namespace Championship_Riven
 
                         if(ObjectManager.Player.Position.Distance(Minion.ServerPosition) > 350 && Minion.Health - SpellQDamage(Minion, Minion.Health) * 2 <= 0)
                         {
-                           MoveToLimited(QPos);
+                           
 
                             Q.Cast();
                             Q.Cast();
