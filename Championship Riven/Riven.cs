@@ -591,7 +591,7 @@ namespace Championship_Riven
                 {
                     if(Minion.IsValidTarget(Q.Range + 300) && !Minion.IsDead )
                     {
-                        if (Utils.GameTimeTickCount - LastMoveCommandT < 1000)
+                        if (Environment.TickCount - LastMoveCommandT < 1000)
                         return;
 
                         if(ObjectManager.Player.Position.Distance(Minion.ServerPosition) > 350 && Minion.Health - SpellQDamage(Minion, Minion.Health) * 2 <= 0)
