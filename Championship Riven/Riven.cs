@@ -586,7 +586,7 @@ namespace Championship_Riven
             {
                 if (Minion.HitNumber >= RivenMenu.Slider(RivenMenu.Laneclear, "UseWLaneMin"))
                 {
-                   E.Cast(Minions);
+                   E.Cast();
                 }
             }
         }  
