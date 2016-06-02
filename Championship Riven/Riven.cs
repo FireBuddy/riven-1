@@ -597,7 +597,7 @@ namespace Championship_Riven
                         Youmu.Cast();
                     }
                 }
-                if(Q.IsReady() && CountQ <2)
+                if(Q.IsReady() && CountQ < 2)
                 {
                     if(Target.IsValidTarget(Q.Range + 300) && !Target.IsDead )
                     {
