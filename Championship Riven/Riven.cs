@@ -585,7 +585,7 @@ namespace Championship_Riven
                 {
                     if(Minion.IsValidTarget(600) )
                     {
-                        var Hhealth = EntityManager.Prediction.Health.GetPrediction(Minion, Q.CastDelay);
+                       
                         if(Minion.Health - SpellQDamage(Minion, Minion.Health) * 2 <= 0)
                         {
                             Q.Cast(Player.Instance.Position.Extend(Minion.ServerPosition,250 ).To3D());  
