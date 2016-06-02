@@ -577,15 +577,15 @@ namespace Championship_Riven
         }
         private static void LastHit()
         {
-            var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, Q.Range + 400);
+            var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, Q.Range + 200);
 
             foreach (var Minion in Minions)
             {
-                if(CountQ => 0 && Q.IsReady())
+                if(CountQ == 0 && Q.IsReady())
                 {
-                    if(Minion.IsValidTarget(Q.Range + 400) )
+                    if(Minion.IsValidTarget(Q.Range + 200) )
                     {
-                        if(Minion.Health - SpellQDamage(Minion, Minion.Health) * 2.0 <= 0)
+                        if(Minion.Health - SpellQDamage(Minion, Minion.Health) * 1.4 <= 0)
                         {
                             Q.Cast(Player.Instance.Position.Extend(Minion.ServerPosition,250 ).To3D());  
                            
