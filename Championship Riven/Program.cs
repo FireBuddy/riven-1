@@ -40,7 +40,7 @@ namespace Championship_Riven
                 }
                 if (CountQ == 1 && Riven.Q.IsReady())
                 {
-                    Circle.Draw(Color.AliceBlue, Riven.Q.Range, Player.Instance.Position);
+                    Circle.Draw(Color.Red, Riven.Q.Range, Player.Instance.Position);
                 }
                 if (CountQ == 2 && Riven.Q.IsReady())
                 {
