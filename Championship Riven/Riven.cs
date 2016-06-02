@@ -577,8 +577,8 @@ namespace Championship_Riven
         private static void LastHit()
         {
             var Minion = EntityManager.MinionsAndMonsters.EnemyMinions.Where(x => x.IsValid && !x.IsDead && x.IsValidTarget(W.Range))
-            .ToList();
-            var Minions = Q.GetCircularFarmLocation(Minion, Q.Range, (int)Q.Range);
+            
+            var Minions = EntityManager.MinionsAndMonsters.GetCircularFarmLocation(Minion, Q.Range, (int)Q.Range);
             
               if (Minion == null)
                 return;
@@ -587,7 +587,7 @@ namespace Championship_Riven
             {
                 if (Minions.HitNumber >= RivenMenu.Slider(RivenMenu.Laneclear, "UseWLaneMin"))
                 {
-                   E.Cast(Minions.Position);
+                   E.Cast(Minions.CastPosition);
                 }
             }
         }  
