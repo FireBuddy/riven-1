@@ -580,8 +580,6 @@ namespace Championship_Riven
             var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, Q.Range + 400);
             
             foreach (var Minion in Minions)
-            if (Minion == null)
-                return;
             {
                 if(CountQ == 0 && Q.IsReady())
                 {
@@ -589,7 +587,8 @@ namespace Championship_Riven
                     {
                         if(Minion.Health - SpellQDamage(Minion, Minion.Health) * 4 <= 0)
                         {
-                            Q.Cast(Player.Instance.Position.Extend(Minion.ServerPosition,200 ).To3D());  
+                            Q.Cast(Player.Instance.Position.Extend(Minion.ServerPosition,200 ).To3D());
+                            return;
                            
                         }
                         
