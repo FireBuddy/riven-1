@@ -578,8 +578,10 @@ namespace Championship_Riven
         private static void LastHit()
         {
             var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, Q.Range + 400);
-
+            
             foreach (var Minion in Minions)
+            if (Minion == null)
+                return;
             {
                 if(CountQ == 0 && Q.IsReady())
                 {
