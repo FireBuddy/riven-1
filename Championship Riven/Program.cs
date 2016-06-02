@@ -10,6 +10,7 @@ namespace Championship_Riven
     {
         
         public static Text Status;
+        public static int CountQ;
 
         static void Main(string[] args)
         {
