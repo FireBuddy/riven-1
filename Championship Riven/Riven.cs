@@ -583,7 +583,7 @@ namespace Championship_Riven
             {
                 if (Mmminions.HitNumber >= 1)
                 {
-                   Q.Cast(EntityManager.MinionsAndMonsters.GetCircularFarmLocation(mminion, Q.Range, (int)Q.Range));
+                   Q.Cast();
                 }
             }
         }  
