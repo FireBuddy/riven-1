@@ -581,7 +581,7 @@ namespace Championship_Riven
             
             foreach (var Minion in Minions)
             {
-                if(CountQ == 0 && Q.IsReady())
+                if(Q.IsReady())
                 {
                     if(Minion.IsValidTarget(Q.Range + 400) )
                     {
