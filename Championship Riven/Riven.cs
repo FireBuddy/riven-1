@@ -542,7 +542,7 @@ namespace Championship_Riven
                 }
                 
                 var EPos = Player.Instance.ServerPosition + (Player.Instance.ServerPosition - Target.ServerPosition);
-                if (CountQ == 2 && Q.IsReady()  && Target.IsValidTarget(400))
+                if (Player.Instance.IsFacing(Target) && CountQ == 2 && Q.IsReady()  && Target.IsValidTarget(400))
                 {
                 
                     {
