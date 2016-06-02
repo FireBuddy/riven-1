@@ -582,7 +582,7 @@ namespace Championship_Riven
             foreach (var Minion in Minions)
             {
                 var QPos = Minion.ServerPosition;
-                Var PPos = Player.ServerPosition;
+                var PPos = Player.ServerPosition;
                 if(Q.IsReady())
                 {
                     if(Minion.IsValidTarget(Q.Range + 300) && !Minion.IsDead )
