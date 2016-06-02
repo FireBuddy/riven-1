@@ -578,7 +578,7 @@ namespace Championship_Riven
         {
             var Minion = EntityManager.MinionsAndMonsters.EnemyMinions.Where(x => x.IsValid && !x.IsDead && x.IsValidTarget(W.Range))
             .ToList();
-            var Minions = ObjectManager.MinionsAndMonsters.GetCircularFarmLocation(Minion, Q.Range, (int)Q.Range);
+            var Minions = Q.GetCircularFarmLocation(Minion, Q.Range, (int)Q.Range);
             
               if (Minion == null)
                 return;
