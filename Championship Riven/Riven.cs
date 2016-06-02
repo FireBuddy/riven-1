@@ -1169,7 +1169,7 @@ namespace Championship_Riven
             {
                 float missinghealth = (target.MaxHealth - healthMod) / target.MaxHealth > 0.75f ? 0.75f : (target.MaxHealth - healthMod) / target.MaxHealth;
                 float pluspercent = missinghealth * (8f / 3f);
-                var rawdmg = new float[] { 80, 120, 160 }[R.Level - 1] + 0.6f * Player.Instance.FlatPhysicalDamageMod;
+                var rawdmg = new float[]  { 10, 30, 50, 70, 90 }[Q.Level - 1] + 0.4f * Player.Instance.FlatPhysicalDamageMod;
                 return Player.Instance.CalculateDamageOnUnit(target, DamageType.Physical, rawdmg);
             }
             return 0f;
