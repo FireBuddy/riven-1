@@ -753,6 +753,26 @@ namespace Championship_Riven
                     }
                 }
             }
+            if (Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Harass) && !target.IsMinion)
+            {
+                if (RivenMenu.CheckBox(RivenMenu.Combo, "UseQCombo") && Q.IsReady())
+                {
+                    if (CountQ == 0 || !Orbwalker.IsAutoAttacking)
+                    {
+                        Q.Cast(target.Position);
+                    }
+
+                    if (CountQ == 1 || !Orbwalker.IsAutoAttacking)
+                    {
+                        Q.Cast(target.Position);
+                    }
+
+                    if(CountQ == 2 || !Orbwalker.IsAutoAttacking)
+                    {
+                        Q.Cast(target.Position);
+                    }
+                }
+            }
 
             if (Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.LaneClear))
             {
