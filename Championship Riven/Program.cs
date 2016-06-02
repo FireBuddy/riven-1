@@ -27,63 +27,6 @@ namespace Championship_Riven
             Drawing.OnDraw += Drawing_OnDraw;
         }
 
-        private static void Drawing_OnDraw(EventArgs args)
-        {
-            if (RivenMenu.CheckBox(RivenMenu.Draw, "DrawOFF"))
-                return;
 
-            if (RivenMenu.CheckBox(RivenMenu.Draw, "DrawQ"))
-            {
-                if (CountQ == 0 && Riven.Q.IsReady())
-                {
-                    Circle.Draw(Color.Aqua, Riven.Q.Range, Player.Instance.Position);
-                }
-                if (CountQ == 1 && Riven.Q.IsReady())
-                {
-                    Circle.Draw(Color.Red, Riven.Q.Range, Player.Instance.Position);
-                }
-                if (CountQ == 2 && Riven.Q.IsReady())
-                {
-                    Circle.Draw(Color.Red, Riven.Q.Range, Player.Instance.Position);
-                }
-            }
-
-            if (RivenMenu.CheckBox(RivenMenu.Draw, "DrawW"))
-            {
-                if (Riven.W.IsReady())
-                {
-                    Circle.Draw(Color.DarkBlue, Riven.W.Range, Player.Instance.Position);
-                }
-            }
-
-            if (RivenMenu.CheckBox(RivenMenu.Draw, "DrawE"))
-            {
-                if (Riven.E.IsReady())
-                {
-                    Circle.Draw(Color.DarkBlue, Riven.E.Range, Player.Instance.Position);
-                }
-            }
-
-            if (RivenMenu.CheckBox(RivenMenu.Draw, "DrawR"))
-            {
-                if (Riven.R.IsReady())
-                {
-                    Circle.Draw(Color.DarkBlue, Riven.R2.Range, Player.Instance.Position);
-                }
-            }
-
-            if(RivenMenu.Keybind(RivenMenu.Burst, "BurstAllowed"))
-            {
-                if (Riven.FocusTarget != null)
-                {
-                    Circle.Draw(Color.DarkBlue, 150, Riven.FocusTarget.Position);
-                }
-            }
-
-            if(RivenMenu.Keybind(RivenMenu.Burst, "BurstAllowed"))
-            {
-                Circle.Draw(Color.Red, 800, Player.Instance.Position);
-            }
-        }
     }
 }
