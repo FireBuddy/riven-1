@@ -574,11 +574,7 @@ namespace Championship_Riven
                     W.Cast();
                 }
             }
-        }
-        public static float GetLastMoveTime()
-        {
-            return LastMoveCommandT;
-        }
+
         private static void LastHit()
         {
             var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, Q.Range + 300);
@@ -591,13 +587,11 @@ namespace Championship_Riven
                 {
                     if(Minion.IsValidTarget(Q.Range + 300) && !Minion.IsDead )
                     {
-                        if (Environment.TickCount - LastMoveCommandT < 1000)
-                        return;
 
                         if(ObjectManager.Player.Position.Distance(Minion.ServerPosition) > 350 && Minion.Health - SpellQDamage(Minion, Minion.Health) * 2 <= 0)
                         {
-                            EloBuddy.Player.IssueOrder(GameObjectOrder.MoveTo, QPos);
-                            EloBuddy.Player.IssueOrder(GameObjectOrder.Stop, QPos);
+                            EloBuddy.Player.IssueOrder(GameObjectOrder.MoveToLimited, QPos);
+
                             Q.Cast();
                             Q.Cast();
                             return;
