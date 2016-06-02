@@ -581,7 +581,7 @@ namespace Championship_Riven
             
             foreach (var Minion in Minions)
             {
-                var QPos = Player.Instance.ServerPosition - 0.001 * Minion.ServerPosition;
+                var QPos = Player.Instance.ServerPosition + (ObjectManager.Player.Position.Distance(Minion.ServerPosition) * 0.001);
                 if(Q.IsReady())
                 {
                     if(Minion.IsValidTarget(Q.Range + 300) && !Minion.IsDead )
@@ -589,8 +589,7 @@ namespace Championship_Riven
                         if(ObjectManager.Player.Position.Distance(Minion.ServerPosition) > 350 && Minion.Health - SpellQDamage(Minion, Minion.Health) * 2 <= 0)
                         {
                             EloBuddy.Player.IssueOrder(GameObjectOrder.MoveTo, QPos);
-
-                           
+                            Q.Cast();
                             Q.Cast();
                             return;
                            
