@@ -24,7 +24,7 @@ namespace Championship_Riven
 
             RivenMenu.Load();
             Riven.Load();
-            Drawing.OnDraw += Drawing_OnDraw;
+           
         }
 
 
