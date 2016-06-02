@@ -753,7 +753,7 @@ namespace Championship_Riven
                     }
                 }
             }
-            if (Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Harass)) && !target.IsMinion)
+            if (Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Harass)) && target.Type == GameObjectType.AIHeroClient)
             {
                 if (RivenMenu.CheckBox(RivenMenu.Combo, "UseQCombo") && Q.IsReady())
                 {
