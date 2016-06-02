@@ -583,7 +583,7 @@ namespace Championship_Riven
             {
                 if(CountQ => 0 && Q.IsReady())
                 {
-                    if(Minion.IsValidTarget(600) )
+                    if(Minion.IsValidTarget(600))
                     {
                        
                         if(Minion.Health - SpellQDamage(Minion, Minion.Health) * 2 <= 0)
