@@ -8,7 +8,7 @@ namespace Championship_Riven
 {
     class Program
     {
-        public static int CountQ;
+        
         public static Text Status;
 
         static void Main(string[] args)
@@ -33,15 +33,15 @@ namespace Championship_Riven
 
             if (RivenMenu.CheckBox(RivenMenu.Draw, "DrawQ"))
             {
-                if (CountQ == 0 Riven.Q.IsReady())
+                if (CountQ == 0 && Riven.Q.IsReady())
                 {
                     Circle.Draw(Color.Aqua, Riven.Q.Range, Player.Instance.Position);
                 }
-                if (CountQ == 1 Riven.Q.IsReady())
+                if (CountQ == 1 && Riven.Q.IsReady())
                 {
                     Circle.Draw(Color.AliceBlue, Riven.Q.Range, Player.Instance.Position);
                 }
-                if (CountQ == 2 Riven.Q.IsReady())
+                if (CountQ == 2 && Riven.Q.IsReady())
                 {
                     Circle.Draw(Color.Red, Riven.Q.Range, Player.Instance.Position);
                 }
