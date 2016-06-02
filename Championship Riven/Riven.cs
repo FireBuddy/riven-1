@@ -930,7 +930,7 @@ namespace Championship_Riven
                 
                 Core.DelayAction(() =>
                 {
-                    if (!Player.Instance.IsRecalling() && CountQ < 2)
+                    if (!Player.Instance.IsRecalling() && CountQ <= 2)
                     {
                         Player.CastSpell(SpellSlot.Q,
                             Orbwalker.LastTarget != null && Orbwalker.LastAutoAttack - Environment.TickCount < 3000
