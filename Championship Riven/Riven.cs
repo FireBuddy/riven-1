@@ -585,7 +585,7 @@ namespace Championship_Riven
                 {
                     if(Minion.IsValidTarget(Q.Range))
                     {
-                        if(Minion.Health - RDamage(Minion, Minion.Health) <= 0)
+                        if(Minion.Health - SpellQDamage(Minion, Minion.Health) <= 0)
                         {
                            Q.Cast(Minion);
                         }
@@ -1168,8 +1168,8 @@ namespace Championship_Riven
             if (target != null)
             {
                 float missinghealth = (target.MaxHealth - healthMod) / target.MaxHealth > 0.75f ? 0.75f : (target.MaxHealth - healthMod) / target.MaxHealth;
-                var rawdmg = new float[] { 10, 30, 50, 70, 90 }[Q.Level - 1] + Player.Instance.TotalAttackDamage) / 100) * new float[] { 40, 45, 50, 55, 60 }[Q.Level - 1]);
-                            
+                float pluspercent = missinghealth * (8f / 3f);
+                var rawdmg = new float[] { 80, 120, 160 }[R.Level - 1] + 0.6f * Player.Instance.FlatPhysicalDamageMod;
                 return Player.Instance.CalculateDamageOnUnit(target, DamageType.Physical, rawdmg);
             }
             return 0f;
