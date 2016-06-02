@@ -590,7 +590,7 @@ namespace Championship_Riven
                             EloBuddy.Player.IssueOrder(GameObjectOrder.MoveTo, Minion.Position);
                             EloBuddy.Player.IssueOrder(GameObjectOrder.MoveTo, Minion.Position);
                            
-                            Q.Cast(Player.Instance.Position.Extend(Minion.ServerPosition, 350).To3D());
+                            Q.Cast();
                             return;
                            
                         }
