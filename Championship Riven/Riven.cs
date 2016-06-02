@@ -1163,5 +1163,19 @@ namespace Championship_Riven
             }
             return 0f;
         }
+        public static float SpellQDamage(Obj_AI_Base target, float healthMod = 0f)
+        {
+            if (target != null)
+            {
+                float missinghealth = (target.MaxHealth - healthMod) / target.MaxHealth > 0.75f ? 0.75f : (target.MaxHealth - healthMod) / target.MaxHealth;
+                var rawdmg = new float[] { 10, 30, 50, 70, 90 }[Q.Level - 1] +
+                            ((Riven.R.IsReady() && useR && !Player.Instance.HasBuff("RivenFengShuiEngine")
+                                ? Player.Instance.TotalAttackDamage * 1.2
+                                : Player.Instance.TotalAttackDamage) / 100) *
+                            new float[] { 40, 45, 50, 55, 60 }[Q.Level - 1]);
+                return Player.Instance.CalculateDamageOnUnit(target, DamageType.Physical, rawdmg);
+            }
+            return 0f;
+        }
     }
 }
