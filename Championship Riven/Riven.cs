@@ -589,10 +589,10 @@ namespace Championship_Riven
                         if(ObjectManager.Player.Position.Distance(Minion.ServerPosition) > 350 && Minion.Health - SpellQDamage(Minion, Minion.Health) * 2 <= 0)
                         {
                             EloBuddy.Player.IssueOrder(GameObjectOrder.MoveTo, QPos);
-                            {
-                                Q.Cast();
-                                Q.Cast();
-                                return;
+                            EloBuddy.Player.IssueOrder(GameObjectOrder.Stop, playerPosition);
+                            Q.Cast();
+                            Q.Cast();
+                            return;
                             }    
                            
                         }
