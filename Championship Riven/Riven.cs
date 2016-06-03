@@ -356,13 +356,14 @@ namespace Championship_Riven
             {
                 Q.Cast((Game.CursorPos.Distance(Player.Instance) > Q.Range ? Player.Instance.Position.Extend(Game.CursorPos, Q.Range - 1).To3D() : Game.CursorPos));
             }
-
+            var Target = TargetSelector.GetTarget(R2.Range, DamageType.Physical);
             if(RivenMenu.CheckBox(RivenMenu.Flee, "UseEFlee"))
-
             {
+                if (Target == null)
+                {
                 E.Cast((Game.CursorPos.Distance(Player.Instance) > E.Range ? Player.Instance.Position.Extend(Game.CursorPos, E.Range - 1).To3D() : Game.CursorPos));
+                }
             }
-
         }
 
         private static void ChooseR(AIHeroClient Target)
