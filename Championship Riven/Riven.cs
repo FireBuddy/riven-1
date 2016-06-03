@@ -714,6 +714,24 @@ namespace Championship_Riven
                 }
             }
         }
+        {
+            var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, Q.Range + 1000);
+            foreach (var Minion in Minions)
+            {
+                if(Minion.IsValidTarget(175) && !Minion.IsDead)
+                  {
+                  if(Q.IsReady())
+                            {
+                                if(Minion.Health > Player.Instance.TotalAttackDamage && Minion.Health - (Player.TotalAttackDamage + SpellQDamage(Minion, Minion.Health)) <= 0)
+                                {
+                                    Player.IssueOrder(GameObjectOrder.AttackUnit, Minion);
+                                    Core.DelayAction( () => Player.CastSpell(SpellSlot.Q), 291);
+                                    Chat.Print("Last Hitting With lanclear with AA-Q");
+                                }
+                            }
+                  }
+            }      
+        }
         private static void LastHit()
         {
             var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, Q.Range * 2 + 125);
