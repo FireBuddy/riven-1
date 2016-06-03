@@ -82,7 +82,13 @@ namespace Championship_Riven
             if (sender is Obj_AI_Turret && sender.Distance(Player.Instance) < 800 && sender.IsAlly)
             {
                 Chat.Print("A Turret is ATTACKING minion!");
+            
+                if (args.Target.IsMinion)
+                {
+                    
+                }
             }
+            
         }
         
         private static void Drawing_OnDraw(EventArgs args)
