@@ -40,11 +40,6 @@ namespace Championship_Riven
 
         public static AIHeroClient FocusTarget;
         
-        public static bool IsUnderTower(this Vector3 v)
-        {
-            return EntityManager.Turrets.Where(a => a.Health > 0 && !a.IsDead).Any(a => a.Distance(v) < 950);
-        }
-
         public static void Load()
         {
             Q = new Spell.Skillshot(SpellSlot.Q, 275, SkillShotType.Circular, 250, 2200, 100);
@@ -81,7 +76,10 @@ namespace Championship_Riven
             Orbwalker.OnPreAttack += BeforeAttack;
             Drawing.OnDraw += Drawing_OnDraw;
         }
-
+        public static bool IsUnderTower(this Vector3 v)
+        {
+            return EntityManager.Turrets.Where(a => a.Health > 0 && !a.IsDead).Any(a => a.Distance(v) < 950);
+        }
         public static void Obj_AI_Turret_OnBasicAttack(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
         {
             if (sender is Obj_AI_Turret && sender.Distance(Player.Instance) < 800 && sender.IsAlly)
@@ -692,7 +690,7 @@ namespace Championship_Riven
             foreach (var Minion in Minions)
             {
 
-                if(Q.IsReady() && !Minion.IsUnderTower())
+                if(Q.IsReady())
                 {
                     if(Minion.IsValidTarget(Q.Range * 2 + 125) && !Minion.IsDead )
                     {
