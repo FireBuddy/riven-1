@@ -98,7 +98,7 @@ namespace Championship_Riven
                                     Chat.Print("Last Hitting With AA-Q");
                                 }
                             }
-                        }
+                        
                             else if(W.IsReady())
                             {
                                 if(Minion.Health > Player.Instance.TotalAttackDamage && Minion.Health - sender.TotalAttackDamage <= 0)
@@ -119,9 +119,9 @@ namespace Championship_Riven
                                 } 
                             }
                             
-                    }
-                    else if(Minion.IsValidTarget(400) && !Minion.IsDead && Minion == args.Target )
-                    {
+                        }
+                        else if(Minion.IsValidTarget(400) && !Minion.IsDead && Minion == args.Target )
+                        {
                             if(Minion.Health > Player.Instance.TotalAttackDamage && Minion.Health - sender.TotalAttackDamage <= 0)
                                 {
                                     E.Cast(Player.Instance.Position.Extend(Minion.ServerPosition, 200).To3D());
@@ -129,6 +129,7 @@ namespace Championship_Riven
                                     Core.DelayAction( () => Player.CastSpell(SpellSlot.Q), 291);
                                     Chat.Print("Last Hitting With AA-E-Q");
                                 } 
+                        }
                     }
                 }
             }
