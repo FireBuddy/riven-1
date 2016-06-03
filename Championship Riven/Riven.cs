@@ -203,9 +203,9 @@ namespace Championship_Riven
             if (ObjectManager.Player.Level <= 1)
             {
                 
-                var lasthitmode = Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.JungleClear);
+                var Junglemode = Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.JungleClear);
 
-                if (!lasthitmode || RivenMenu.CheckBox(RivenMenu.Jungleclear, "UseWJG") )
+                if (!Junglemode || !RivenMenu.CheckBox(RivenMenu.Jungleclear, "Level_1 JungleClearing") )
                 {
                     return;
                 }
