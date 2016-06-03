@@ -79,7 +79,7 @@ namespace Championship_Riven
 
         public static void Obj_AI_Turret_OnBasicAttack(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
         {
-            if (sender is Obj_AI_Turret && !args.Target is AIHeroClient && sender.IsAlly)
+            if (sender is Obj_AI_Turret && !args.Target is AIHeroClient && Target.IsEnemy)
             {
                 Chat.Print("A Turret is ATTACKING minion!");
             }
