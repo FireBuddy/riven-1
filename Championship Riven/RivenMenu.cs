@@ -92,6 +92,7 @@ namespace Championship_Riven
             Jungleclear.Add("UseQJG", new CheckBox("Use Q"));
             Jungleclear.Add("UseWJG", new CheckBox("Use W"));
             Jungleclear.Add("UseEJG", new CheckBox("Use E"));
+            Jungleclear.Add("Level_1 JungleClearing", new CheckBox("only attack small Red/BLUE"));
 
             Flee = Principal.AddSubMenu("Flee", "Flee");
             Flee.Add("UseQFlee", new CheckBox("Use Q"));
