@@ -87,19 +87,27 @@ namespace Championship_Riven
                     var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, Q.Range + 1000);
                     foreach (var Minion in Minions)
                     {
-                        if(Q.IsReady() || W.IsReady())
+                        if(Minion.IsValidTarget(175) && !Minion.IsDead && Minion == args.Target )
                         {
-                            if(Minion.IsValidTarget(175) && !Minion.IsDead && Minion == args.Target )
+                            if(Q.IsReady())
                             {
                                 if(Minion.Health > Player.Instance.TotalAttackDamage && Minion.Health - sender.TotalAttackDamage <= 0)
                                 {
                                     Player.IssueOrder(GameObjectOrder.AttackUnit, Minion);
-                                     Core.DelayAction( () => Player.CastSpell(SpellSlot.Q), 291);
-                                     Core.DelayAction( () => Player.CastSpell(SpellSlot.W), 400);
-                                    Chat.Print("A Turret is ATTACKING minion!");
+                                    Core.DelayAction( () => Player.CastSpell(SpellSlot.Q), 291);
+                                    Chat.Print("Last Hitting With AA-Q");
                                 }
                             }
                         }
+                            else if(W.IsReady())
+                            {
+                                if(Minion.Health > Player.Instance.TotalAttackDamage && Minion.Health - sender.TotalAttackDamage <= 0)
+                                {
+                                    Player.IssueOrder(GameObjectOrder.AttackUnit, Minion);
+                                    Core.DelayAction( () => Player.CastSpell(SpellSlot.W), 291);
+                                    Chat.Print("Last Hitting With AA-Q");
+                                } 
+                            }        
                     }
                 }
             }
