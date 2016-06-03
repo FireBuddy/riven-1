@@ -95,6 +95,7 @@ namespace Championship_Riven
                                 {
                                     Player.IssueOrder(GameObjectOrder.AttackUnit, Minion);
                                      Core.DelayAction( () => Player.CastSpell(SpellSlot.Q), 291);
+                                     Core.DelayAction( () => Player.CastSpell(SpellSlot.W), 400);
                                     Chat.Print("A Turret is ATTACKING minion!");
                                 }
                             }
