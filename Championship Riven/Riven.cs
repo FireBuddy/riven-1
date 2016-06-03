@@ -625,12 +625,12 @@ namespace Championship_Riven
                     }    
                 }
                 var EPos = Player.Instance.ServerPosition + (Player.Instance.ServerPosition - Target.ServerPosition);
-                if (Player.Instance.IsFacing(Target) && CountQ == 2 && Q.IsReady()  && Target.IsValidTarget(270))
+                if (Player.Instance.IsFacing(Target) && CountQ == 2 && Q.IsReady()  && Target.IsValidTarget(Q.Range))
                 {
                 
                     {
                         Player.CastSpell(SpellSlot.Q, Target.Position);
-                        if (Target.IsValidTarget(249))
+                        if (Target.IsValidTarget(W.Range))
                         {
                            Core.DelayAction( () => Player.CastSpell(SpellSlot.E, EPos),1200);
                            Core.DelayAction( () => Player.CastSpell(SpellSlot.W), 1240);
