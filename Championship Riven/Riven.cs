@@ -120,6 +120,16 @@ namespace Championship_Riven
                             }
                             
                     }
+                    else if(Minion.IsValidTarget(400) && !Minion.IsDead && Minion == args.Target )
+                    {
+                            if(Minion.Health > Player.Instance.TotalAttackDamage && Minion.Health - sender.TotalAttackDamage <= 0)
+                                {
+                                    E.Cast(Player.Instance.Position.Extend(Minion.ServerPosition, 200).To3D());
+                                    Player.IssueOrder(GameObjectOrder.AttackUnit, Minion);
+                                    Core.DelayAction( () => Player.CastSpell(SpellSlot.Q), 291);
+                                    Chat.Print("Last Hitting With AA-E-Q");
+                                } 
+                    }
                 }
             }
         }    
