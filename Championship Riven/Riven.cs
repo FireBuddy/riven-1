@@ -89,9 +89,9 @@ namespace Championship_Riven
                     {
                         if(Q.IsReady())
                         {
-                            if(Minion.IsValidTarget(Q.Range) && !Minion.IsDead && Minion = Target )
+                            if(Minion.IsValidTarget(Q.Range) && !Minion.IsDead && Minion == args.Target )
                             {
-                                if(Player.Instance.IsFacing(Minion) && inion.Health - SpellQDamage(Minion, Minion.Health) * 2 <= 0)
+                                if(Player.Instance.IsFacing(Minion) && Minion.Health - SpellQDamage(Minion, Minion.Health) * 2 <= 0)
                                 {
                                     Q.Cast(Player.Instance.Position.Extend(Minion.ServerPosition, 200).To3D());
                                 }
