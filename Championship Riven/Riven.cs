@@ -84,7 +84,20 @@ namespace Championship_Riven
                 Chat.Print("A Turret is ATTACKING minion!");
                 if (!(args.Target is AIHeroClient))
                 {
-
+                    var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, Q.Range);
+                    foreach (var Minion in Minions)
+                    {
+                        if(Q.IsReady())
+                        {
+                            if(Minion.IsValidTarget(Q.Range) && !Minion.IsDead && Minion = Target )
+                            {
+                                if(Player.Instance.IsFacing(Minion) && inion.Health - SpellQDamage(Minion, Minion.Health) * 2 <= 0)
+                                {
+                                    Q.Cast(Player.Instance.Position.Extend(Minion.ServerPosition, 200).To3D());
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }    
