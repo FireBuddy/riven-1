@@ -79,7 +79,7 @@ namespace Championship_Riven
 
         public static void Obj_AI_Turret_OnBasicAttack(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
         {
-            if (sender is Obj_AI_Turret && sender.Distance(Player.Instance) < 800 && sender.IsAlly)
+            if (sender is Obj_AI_Turret && sender.Distance(Player.Instance) < 1000 && sender.IsAlly)
             {
                 
                 if (!(args.Target is AIHeroClient))
