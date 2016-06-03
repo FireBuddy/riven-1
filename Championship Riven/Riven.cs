@@ -83,7 +83,7 @@ namespace Championship_Riven
             {
                 Chat.Print("A Turret is ATTACKING minion!");
             
-                if (args.Target.IsMinion)
+                if (args.Target != null)
                 {
                     
                 }
