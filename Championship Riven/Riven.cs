@@ -81,7 +81,7 @@ namespace Championship_Riven
         {
             if (sender is Obj_AI_Turret && sender.Distance(Player.Instance) < 800 && sender.IsAlly)
             {
-                Chat.Print("A Turret is ATTACKING minion!");
+                
                 if (!(args.Target is AIHeroClient))
                 {
                     var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, Q.Range);
@@ -94,6 +94,7 @@ namespace Championship_Riven
                                 if(Player.Instance.IsFacing(Minion) && Minion.Health - sender.TotalAttackDamage <= 0)
                                 {
                                     Q.Cast(Player.Instance.Position.Extend(Minion.ServerPosition, 200).To3D());
+                                    Chat.Print("A Turret is ATTACKING minion!");
                                 }
                             }
                         }
