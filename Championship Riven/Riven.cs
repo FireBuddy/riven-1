@@ -91,7 +91,7 @@ namespace Championship_Riven
                         {
                             if(Minion.IsValidTarget(Q.Range + 1000) && !Minion.IsDead && Minion == args.Target )
                             {
-                                if(Player.Instance.IsFacing(Minion) && Minion.Health - sender.TotalAttackDamage <= 0)
+                                if(Player.Instance.IsFacing(Minion) && Minion.Health > Player.Instance.TotalAttackDamage && Minion.Health - sender.TotalAttackDamage <= 0)
                                 {
                                     Q.Cast(Player.Instance.Position.Extend(Minion.ServerPosition, 200).To3D());
                                     Chat.Print("A Turret is ATTACKING minion!");
