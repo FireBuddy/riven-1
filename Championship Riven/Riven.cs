@@ -87,7 +87,7 @@ namespace Championship_Riven
                     var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, Q.Range + 1000);
                     foreach (var Minion in Minions)
                     {
-                        if(Q.IsReady())
+                        if(Q.IsReady() || W.IsReady())
                         {
                             if(Minion.IsValidTarget(175) && !Minion.IsDead && Minion == args.Target )
                             {
