@@ -124,6 +124,10 @@ namespace Championship_Riven
                 {
                     Circle.Draw(Color.Red, Riven.Q.Range, Player.Instance.Position);
                 }
+                if (CountQ == 3 && Riven.Q.IsReady())
+                {
+                    Circle.Draw(Color.Green, Riven.Q.Range, Player.Instance.Position);
+                }
             }
 
             if (RivenMenu.CheckBox(RivenMenu.Draw, "DrawW"))
@@ -700,7 +704,7 @@ namespace Championship_Riven
                         
                     }
                 }
-                else if(E.IsReady() && Minion.IsValidTarget(E.Range + 125) && ObjectManager.Player.Position.Distance(Minion.ServerPosition) > 300  && Minion.Health - SpellQDamage(Minion, Minion.Health) * 2 <= 0 )
+                else if(E.IsReady() && CountQ >  && Minion.IsValidTarget(E.Range + 125) && ObjectManager.Player.Position.Distance(Minion.ServerPosition) > 300  && Minion.Health - SpellQDamage(Minion, Minion.Health) * 2 <= 0 )
                 {
                       E.Cast(Player.Instance.Position.Extend(Minion.ServerPosition, 200).To3D());
                 }      
