@@ -692,7 +692,7 @@ namespace Championship_Riven
                     if(Minion.IsValidTarget(Q.Range * 2 + 125) && !Minion.IsDead )
                     {
 
-                        if(Player.Instance.IsFacing(Minion) && EntityManager.Turrets.Position.Distance(Minion.ServerPosition) > 900 && ObjectManager.Player.Position.Distance(Minion.ServerPosition) > 415 && Minion.Health - SpellQDamage(Minion, Minion.Health) * 2 <= 0)
+                        if(Player.Instance.IsFacing(Minion) && ObjectManager.Turrets.Position.Distance(Minion.ServerPosition) > 900 && ObjectManager.Player.Position.Distance(Minion.ServerPosition) > 415 && Minion.Health - SpellQDamage(Minion, Minion.Health) * 2 <= 0)
                         {
                            
                             Q.Cast(Player.Instance.Position.Extend(Minion.ServerPosition, 200).To3D());
