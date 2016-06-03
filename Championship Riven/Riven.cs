@@ -687,7 +687,7 @@ namespace Championship_Riven
             foreach (var Minion in Minions)
             {
 
-                if(Q.IsReady())
+                if(Q.IsReady() && !Minion.IsUnderTower())
                 {
                     if(Minion.IsValidTarget(Q.Range * 2 + 125) && !Minion.IsDead )
                     {
