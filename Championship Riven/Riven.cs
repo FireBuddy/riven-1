@@ -93,7 +93,8 @@ namespace Championship_Riven
                             {
                                 if(Player.Instance.IsFacing(Minion) && Minion.Health > Player.Instance.TotalAttackDamage && Minion.Health - sender.TotalAttackDamage <= 0)
                                 {
-                                    Q.Cast(Player.Instance.Position.Extend(Minion.ServerPosition, 200).To3D());
+                                    Player.IssueOrder(GameObjectOrder.AttackUnit, Minion);
+                                     Core.DelayAction( () => Player.CastSpell(SpellSlot.Q), 291);
                                     Chat.Print("A Turret is ATTACKING minion!");
                                 }
                             }
