@@ -76,10 +76,7 @@ namespace Championship_Riven
             Orbwalker.OnPreAttack += BeforeAttack;
             Drawing.OnDraw += Drawing_OnDraw;
         }
-        public static bool IsUnderTower(this Vector3 v)
-        {
-            return EntityManager.Turrets.Where(a => a.Health > 0 && !a.IsDead).Any(a => a.Distance(v) < 950);
-        }
+
         public static void Obj_AI_Turret_OnBasicAttack(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
         {
             if (sender is Obj_AI_Turret && sender.Distance(Player.Instance) < 800 && sender.IsAlly)
