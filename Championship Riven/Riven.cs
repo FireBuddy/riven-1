@@ -71,11 +71,20 @@ namespace Championship_Riven
             Gapcloser.OnGapcloser += Gapcloser_OnGapcloser;
             Obj_AI_Base.OnPlayAnimation += Obj_AI_Base_OnPlayAnimation;
             Obj_AI_Base.OnProcessSpellCast += Obj_AI_Base_OnProcessSpellCast;
+            Obj_AI_Turret.OnbasicAttack += Obj_AI_Turret_OnBasicAttack;
             Orbwalker.OnPostAttack += Orbwalker_OnPostAttack;
             Orbwalker.OnPreAttack += BeforeAttack;
             Drawing.OnDraw += Drawing_OnDraw;
         }
 
+        public static void Obj_AI_Turret_OnBasicAttack(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
+        {
+            if (sender is Obj_AI_Turret && args.Target.IsMe)
+            {
+                Chat.Print("A Turret is ATTACKING me!");
+            }
+        }
+        
         private static void Drawing_OnDraw(EventArgs args)
         {
             if (RivenMenu.CheckBox(RivenMenu.Draw, "DrawOFF"))
