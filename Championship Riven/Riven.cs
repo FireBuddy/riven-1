@@ -39,6 +39,11 @@ namespace Championship_Riven
         public static Item Mercurial;
 
         public static AIHeroClient FocusTarget;
+        
+        public static bool IsUnderTower(this Vector3 v)
+        {
+            return EntityManager.Turrets.Where(a => a.Health > 0 && !a.IsDead).Any(a => a.Distance(v) < 950);
+        }
 
         public static void Load()
         {
