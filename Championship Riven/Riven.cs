@@ -704,7 +704,7 @@ namespace Championship_Riven
                         
                     }
                 }
-                else if(E.IsReady() && CountQ > 2  && Minion.IsValidTarget(E.Range + 125) && ObjectManager.Player.Position.Distance(Minion.ServerPosition) > 300  && Minion.Health - SpellQDamage(Minion, Minion.Health) * 2 <= 0 )
+                else if(E.IsReady() && CountQ => 2 && Minion.IsValidTarget(E.Range + 125) && ObjectManager.Player.Position.Distance(Minion.ServerPosition) > 300  && Minion.Health - SpellQDamage(Minion, Minion.Health) * 2 <= 0 )
                 {
                       E.Cast(Player.Instance.Position.Extend(Minion.ServerPosition, 200).To3D());
                 }      
