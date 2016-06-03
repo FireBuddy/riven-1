@@ -359,9 +359,14 @@ namespace Championship_Riven
             var Target = TargetSelector.GetTarget(R2.Range, DamageType.Physical);
             if(RivenMenu.CheckBox(RivenMenu.Flee, "UseEFlee"))
             {
-                if (Target == null)
+                if (Target == null || !Target.IsValidTarget(W.Range))
                 {
-                E.Cast((Game.CursorPos.Distance(Player.Instance) > E.Range ? Player.Instance.Position.Extend(Game.CursorPos, E.Range - 1).To3D() : Game.CursorPos));
+                    E.Cast((Game.CursorPos.Distance(Player.Instance) > E.Range ? Player.Instance.Position.Extend(Game.CursorPos, E.Range - 1).To3D() : Game.CursorPos));
+                }
+                else if(Target.IsValidTarget(W.Range))
+                {
+                    E.Cast((Game.CursorPos.Distance(Player.Instance) > E.Range ? Player.Instance.Position.Extend(Game.CursorPos, E.Range - 1).To3D() : Game.CursorPos));
+                    Core.DelayAction( () => Player.CastSpell(SpellSlot.W), 40);
                 }
             }
         }
