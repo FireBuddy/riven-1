@@ -717,7 +717,7 @@ namespace Championship_Riven
         }
         {
             var Minions2 = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, Q.Range + 1000);
-            foreach (var Minion3 in Minions)
+            foreach (var Minion3 in Minions2)
             {
                 if(Minion3.IsValidTarget(175) && !Minion3.IsDead)
                 {
