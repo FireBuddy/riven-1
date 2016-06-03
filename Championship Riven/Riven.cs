@@ -87,6 +87,7 @@ namespace Championship_Riven
 
                 }
             }
+        }    
         
         private static void Drawing_OnDraw(EventArgs args)
         {
