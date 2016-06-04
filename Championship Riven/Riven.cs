@@ -768,7 +768,7 @@ namespace Championship_Riven
             foreach (var Minion2 in Minions2)
             {
 
-                if(Q.IsReady())
+                if(tawah == null && Q.IsReady())
                 {
                     if(Minion2.IsValidTarget(Q.Range * 2 + 125) && !Minion2.IsDead )
                     {
