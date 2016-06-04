@@ -719,11 +719,8 @@ namespace Championship_Riven
         
         private static void LastHit()
         {
-        var turret =
-                EntityManager.Turrets.Enemies.OrderBy(
-                    x => x.Distance(Player.Position) <= 750 && !x.IsAlly && !x.IsDead)
-                    .FirstOrDefault();
-        return turret;
+        var turret =EntityManager.Turrets.Enemies.OrderBy(x => x.Distance(Player.Position) <= 750 && !x.IsAlly && !x.IsDead).FirstOrDefault();
+       
         }
 
         
