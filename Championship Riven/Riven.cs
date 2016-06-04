@@ -79,55 +79,61 @@ namespace Championship_Riven
 
         public static void Obj_AI_Turret_OnBasicAttack(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
         {
-            if (Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.LastHit) && sender is Obj_AI_Turret && sender.Distance(Player.Instance) < 1000 && sender.IsAlly)
+            if ((Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.LastHit)||Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.LaneClear)) && sender is Obj_AI_Turret && sender.Distance(Player.Instance) < 2000 && sender.IsAlly)
             {
                 
                 if (!(args.Target is AIHeroClient))
                 {
-                    var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, Q.Range + 1000);
+                    var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, 450);
                     foreach (var Minion in Minions)
+                    if(Minion.Health > Player.Instance.TotalAttackDamage && Minion.Health - sender.TotalAttackDamage * 1 <= 0)
+                    
                     {
-                        if(Minion.IsValidTarget(175) && !Minion.IsDead && Minion == args.Target )
+                        if(Minion.IsValidTarget(125) && !Minion.IsDead && Minion == args.Target )
                         {
-                            if(Q.IsReady())
+                            if(Q.IsReady() && CountQ < 2)
                             {
-                                if(Minion.Health > Player.Instance.TotalAttackDamage && Minion.Health - sender.TotalAttackDamage <= 0)
+                                if(Minion.Health > Player.Instance.TotalAttackDamage && Minion.Health - sender.TotalAttackDamage * 1 <= 0)
                                 {
                                     Player.IssueOrder(GameObjectOrder.AttackUnit, Minion);
                                     Core.DelayAction( () => Player.CastSpell(SpellSlot.Q), 291);
                                     Chat.Print("Last Hitting With AA-Q");
+                                    return;
                                 }
                             }
                         
                             else if(W.IsReady())
                             {
-                                if(Minion.Health > Player.Instance.TotalAttackDamage && Minion.Health - sender.TotalAttackDamage <= 0)
+                                if(Minion.Health > Player.Instance.TotalAttackDamage && Minion.Health - sender.TotalAttackDamage * 1 <= 0)
                                 {
                                     Player.IssueOrder(GameObjectOrder.AttackUnit, Minion);
                                     Core.DelayAction( () => Player.CastSpell(SpellSlot.W), 291);
                                     Chat.Print("Last Hitting With AA-W");
+                                    return;
                                 } 
                             }
                             else if(E.IsReady())
                             {
-                                if(Minion.Health > Player.Instance.TotalAttackDamage && Minion.Health - sender.TotalAttackDamage <= 0)
+                                if(Minion.Health > Player.Instance.TotalAttackDamage && Minion.Health - sender.TotalAttackDamage * 1 <= 0)
                                 {
                                     E.Cast(Player.Instance.Position.Extend(Minion.ServerPosition, 200).To3D());
                                     Player.IssueOrder(GameObjectOrder.AttackUnit, Minion);
-                                    Core.DelayAction( () => Player.CastSpell(SpellSlot.Q), 291);
-                                    Chat.Print("Last Hitting With AA-E-Q");
+                                    
+                                    Chat.Print("Last Hitting With e-AA");
+                                    return;
                                 } 
                             }
                             
                         }
-                        else if(Minion.IsValidTarget(400) && !Minion.IsDead && Minion == args.Target )
+                        else if(E.IsReady() && Minion.IsValidTarget(400) && !Minion.IsDead && Minion == args.Target )
                         {
-                            if(Minion.Health > Player.Instance.TotalAttackDamage && Minion.Health - sender.TotalAttackDamage <= 0)
+                            if(Minion.Health > Player.Instance.TotalAttackDamage && Minion.Health - sender.TotalAttackDamage * 1 <= 0)
                                 {
                                     E.Cast(Player.Instance.Position.Extend(Minion.ServerPosition, 200).To3D());
                                     Player.IssueOrder(GameObjectOrder.AttackUnit, Minion);
-                                    Core.DelayAction( () => Player.CastSpell(SpellSlot.Q), 291);
-                                    Chat.Print("Last Hitting With AA-E-Q");
+                                   
+                                    Chat.Print("Last Hitting With E-AA");
+                                    return;
                                 } 
                         }
                     }
