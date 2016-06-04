@@ -1023,7 +1023,7 @@ namespace Championship_Riven
         }
 
         private static void Obj_AI_Base_OnProcessSpellCast(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
-        
+        {
         {
             if (!sender.IsMe) return;
 
@@ -1033,6 +1033,8 @@ namespace Championship_Riven
                 return;
             }
             if (args.SData.Name.ToLower().Contains(Riven.Q.Name.ToLower()))
+            var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, 450);
+            foreach (var Minion in Minions)
             {
                 LastCastQ = Environment.TickCount;
                 
