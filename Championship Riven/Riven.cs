@@ -1033,15 +1033,14 @@ namespace Championship_Riven
                 return;
             }
             
-            var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, 400);
-            foreach (var Minion in Minions)
+            var minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, Q.Range).Where(minion => minion != null && !minion.IsDead).ToList();
             if (args.SData.Name.ToLower().Contains(Riven.Q.Name.ToLower()))
             {
                 LastCastQ = Environment.TickCount;
                 
                 Core.DelayAction(() =>
                 {
-                    if (!Player.Instance.IsRecalling() && CountQ <= 2 && !Minion.IsValidTarget(200))
+                    if (!Player.Instance.IsRecalling() && CountQ <= 2 && minions.Count >= 2)
                     {
                         Player.CastSpell(SpellSlot.Q,
                             Orbwalker.LastTarget != null && Orbwalker.LastAutoAttack - Environment.TickCount < 3000
