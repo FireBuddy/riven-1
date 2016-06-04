@@ -763,8 +763,8 @@ namespace Championship_Riven
         }
         
         {
-            var mawah = EntityManager.Heroes.EnemiesirstOrDefault
-            (t => !t.IsDead && t.IsInRange(Player.Instance, 800));
+            var mawah = EntityManager.Heroes.Enemies.FirstOrDefault
+            (y => !y.IsDead && y.IsInRange(Player.Instance, 800));
             var tawah2 = EntityManager.Turrets.Allies.FirstOrDefault
             (t => !t.IsDead && t.IsInRange(Player.Instance, 800));
             var Minions2 = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, Q.Range * 2 + 125);
