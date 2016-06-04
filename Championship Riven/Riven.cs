@@ -72,11 +72,68 @@ namespace Championship_Riven
             Obj_AI_Base.OnPlayAnimation += Obj_AI_Base_OnPlayAnimation;
             Obj_AI_Base.OnProcessSpellCast += Obj_AI_Base_OnProcessSpellCast;
             Obj_AI_Turret.OnBasicAttack += Obj_AI_Turret_OnBasicAttack;
+            Obj_AI_Turret.OnBasicAttack += Obj_AI_Turret_OnBasicAttack2;
             Orbwalker.OnPostAttack += Orbwalker_OnPostAttack;
             Orbwalker.OnPreAttack += BeforeAttack;
             Drawing.OnDraw += Drawing_OnDraw;
         }
+         public static void Obj_AI_Turret_OnBasicAttack2(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
+        {
+            if (sender is Obj_AI_Turret && sender.Distance(Player.Instance) < 800 && sender.IsAlly)
+            {
+                if (!(args.Target is AIHeroClient) && args.Target != null)
+                {
+                    
+                    var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, 450);
+                    foreach (var Minion in Minions)
+                    
+                    if(Minion != null && Minion.Health > Player.Instance.TotalAttackDamage && Minion.Health - sender.TotalAttackDamage <= 0 )
+                     
+                    {
+                        if( Minion.IsValidTarget(Player.Instance.GetAutoAttackRange(Minion)) && !Minion.IsDead && Minion == args.Target)
+                        {
+                            if(Q.IsReady() && CountQ <= 2)
+                            {
+                                
+                                {
+                                    
+                                    Player.IssueOrder(GameObjectOrder.AttackUnit, Minion);
+                                    Core.DelayAction( () => Player.CastSpell(SpellSlot.Q), 300);
+                                    Chat.Print("Last Hitting With AA-Q");
+                                    
+                                }
+                            }
+                        
+                            else if(W.IsReady())
+                            {
+                                
+                                {
+                                    
+                                    Player.IssueOrder(GameObjectOrder.AttackUnit, Minion);
+                                    Core.DelayAction( () => Player.CastSpell(SpellSlot.W), 300);
+                                    Chat.Print("Last Hitting With AA-W");
+                                    
+                                } 
+                            }
+                            else if(E.IsReady())
+                            {
+                                
+                                {
+                                    
+                                    E.Cast(Player.Instance.Position.Extend(Minion.ServerPosition, 200).To3D());
+                                    Player.IssueOrder(GameObjectOrder.AttackUnit, Minion);
+                                    
+                                    Chat.Print("Last Hitting With e-AA");
+                                   
+                                } 
+                            }
+                            
+                        }
 
+                    }
+                }
+            }
+        }   
         public static void Obj_AI_Turret_OnBasicAttack(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
         {
             if (sender is Obj_AI_Turret && sender.Distance(Player.Instance) < 800 && sender.IsAlly)
