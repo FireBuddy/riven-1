@@ -763,12 +763,14 @@ namespace Championship_Riven
         }
         
         {
+            var tawah2 = EntityManager.Turrets.Allies.FirstOrDefault
+            (t => !t.IsDead && t.IsInRange(Player.Instance, 800));
             var Minions2 = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, Q.Range * 2 + 125);
             
             foreach (var Minion2 in Minions2)
             {
 
-                if(tawah == null && Q.IsReady())
+                if(tawah2 == null && Q.IsReady())
                 {
                     if(Minion2.IsValidTarget(Q.Range * 2 + 125) && !Minion2.IsDead )
                     {
