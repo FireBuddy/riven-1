@@ -91,13 +91,13 @@ namespace Championship_Riven
                     if(Minion.Health > Player.Instance.TotalAttackDamage * 0.8  && Minion.Health - sender.TotalAttackDamage <= 0 )
                      
                     {
-                        if( Minion.IsValidTarget(200) && !Minion.IsDead && Minion == args.Target)
+                        if( Minion.IsValidTarget(150) && !Minion.IsDead && Minion == args.Target)
                         {
                             if(Q.IsReady() && CountQ < 2)
                             {
                                 
                                 {
-                                    Player.IssueOrder(GameObjectOrder.MoveTo, Minion.Position);
+                                    
                                     Player.IssueOrder(GameObjectOrder.AttackUnit, Minion);
                                     
                                     Chat.Print("Last Hitting With AA-Q");
@@ -109,7 +109,7 @@ namespace Championship_Riven
                             {
                                 
                                 {
-                                    Player.IssueOrder(GameObjectOrder.MoveTo, Minion.Position);
+                                    
                                     Player.IssueOrder(GameObjectOrder.AttackUnit, Minion);
                                     
                                     Chat.Print("Last Hitting With AA-W");
@@ -120,7 +120,7 @@ namespace Championship_Riven
                             {
                                 
                                 {
-                                    Player.IssueOrder(GameObjectOrder.MoveTo, Minion.Position);
+                                    
                                     E.Cast(Player.Instance.Position.Extend(Minion.ServerPosition, 200).To3D());
                                     Player.IssueOrder(GameObjectOrder.AttackUnit, Minion);
                                     
