@@ -84,7 +84,7 @@ namespace Championship_Riven
                 if (!(args.Target is AIHeroClient) && args.Target != null)
                 {
                     
-                    var Minions = ObjectManager.MinionsAndMonsters.GetLaneMinions(ObjectManager.UnitTeam.Enemy, Player.Instance.Position, 450);
+                    var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, 450);
                     foreach (var Minion in Minions)
                     
                     if (Minion != null && Prediction.Health.GetPrediction(Minion, Q.CastDelay) > Player.Instance.TotalAttackDamage && Prediction.Health.GetPrediction(Minion, 800) - sender.TotalAttackDamage <= 0 )
