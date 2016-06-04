@@ -85,7 +85,7 @@ namespace Championship_Riven
                 if (!(args.Target is AIHeroClient))
                 {
                     var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, 450);
-                    
+                    foreach (var Minion in Minions)
                     
                     if(Minion.Health > Player.Instance.TotalAttackDamage && Minion.Health - sender.TotalAttackDamage * 2 <= 0 )
                      
@@ -1033,15 +1033,15 @@ namespace Championship_Riven
                 return;
             }
             
-            
-            
+            var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, 400);
+            foreach (var Minion in Minions)
             if (args.SData.Name.ToLower().Contains(Riven.Q.Name.ToLower()))
             {
                 LastCastQ = Environment.TickCount;
                 
                 Core.DelayAction(() =>
                 {
-                    if (!Player.Instance.IsRecalling() && CountQ <= 2)
+                    if (!Player.Instance.IsRecalling() && CountQ <= 2 && !Minion.IsValidTarget(200))
                     {
                         Player.CastSpell(SpellSlot.Q,
                             Orbwalker.LastTarget != null && Orbwalker.LastAutoAttack - Environment.TickCount < 3000
