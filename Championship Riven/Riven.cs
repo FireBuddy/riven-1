@@ -99,7 +99,7 @@ namespace Championship_Riven
                                 {
                                     Player.IssueOrder(GameObjectOrder.MoveTo, Minion.Position);
                                     Player.IssueOrder(GameObjectOrder.AttackUnit, Minion);
-                                    Core.DelayAction( () => Player.CastSpell(SpellSlot.Q), 400);
+                                    
                                     Chat.Print("Last Hitting With AA-Q");
                                     
                                 }
@@ -111,7 +111,7 @@ namespace Championship_Riven
                                 {
                                     Player.IssueOrder(GameObjectOrder.MoveTo, Minion.Position);
                                     Player.IssueOrder(GameObjectOrder.AttackUnit, Minion);
-                                    Core.DelayAction( () => Player.CastSpell(SpellSlot.W), 400);
+                                    
                                     Chat.Print("Last Hitting With AA-W");
                                     
                                 } 
@@ -130,18 +130,7 @@ namespace Championship_Riven
                             }
                             
                         }
-                        else if(E.IsReady() && Minion.IsValidTarget(400) && !Minion.IsDead && Minion == args.Target )
-                        {
-                            
-                                {
-                                    Player.IssueOrder(GameObjectOrder.MoveTo, Minion.Position);
-                                    E.Cast(Player.Instance.Position.Extend(Minion.ServerPosition, 200).To3D());
-                                    Player.IssueOrder(GameObjectOrder.AttackUnit, Minion);
-                                   
-                                    Chat.Print("Last Hitting With E-AA");
-                                    
-                                } 
-                        }
+
                     }
                 }
             }
