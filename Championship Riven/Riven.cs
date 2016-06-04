@@ -83,14 +83,67 @@ namespace Championship_Riven
             {
                 
                 if (!(args.Target is AIHeroClient))
-                    var TTarget = args.Target;
+                {
+                    
+                    var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, 450);
+                    foreach (var Minion in Minions)
+                    
+                    if(args.Target.Health > Player.Instance.TotalAttackDamage && Minion.Health - sender.TotalAttackDamage * 1.3 <= 0 )
+                     
                     {
-                    if(TTarget.Health > Player.Instance.TotalAttackDamage )
-                         
+                        if( Minion.IsValidTarget(200) && !Minion.IsDead && Minion.NetworkID  == args.Target.NetworkID)
                         {
-    
+                            if(Q.IsReady() && CountQ < 2)
+                            {
+                                
+                                {
+                                    Player.IssueOrder(GameObjectOrder.MoveTo, Minion.Position);
+                                    Player.IssueOrder(GameObjectOrder.AttackUnit, Minion);
+                                    Core.DelayAction( () => Player.CastSpell(SpellSlot.Q), 400);
+                                    Chat.Print("Last Hitting With AA-Q");
+                                    
+                                }
+                            }
+                        
+                            else if(W.IsReady())
+                            {
+                                
+                                {
+                                    Player.IssueOrder(GameObjectOrder.MoveTo, Minion.Position);
+                                    Player.IssueOrder(GameObjectOrder.AttackUnit, Minion);
+                                    Core.DelayAction( () => Player.CastSpell(SpellSlot.W), 400);
+                                    Chat.Print("Last Hitting With AA-W");
+                                    
+                                } 
+                            }
+                            else if(E.IsReady())
+                            {
+                                
+                                {
+                                    Player.IssueOrder(GameObjectOrder.MoveTo, Minion.Position);
+                                    E.Cast(Player.Instance.Position.Extend(Minion.ServerPosition, 200).To3D());
+                                    Player.IssueOrder(GameObjectOrder.AttackUnit, Minion);
+                                    
+                                    Chat.Print("Last Hitting With e-AA");
+                                   
+                                } 
+                            }
+                            
+                        }
+                        else if(E.IsReady() && Minion.IsValidTarget(400) && !Minion.IsDead && Minion == args.Target )
+                        {
+                            
+                                {
+                                    Player.IssueOrder(GameObjectOrder.MoveTo, Minion.Position);
+                                    E.Cast(Player.Instance.Position.Extend(Minion.ServerPosition, 200).To3D());
+                                    Player.IssueOrder(GameObjectOrder.AttackUnit, Minion);
+                                   
+                                    Chat.Print("Last Hitting With E-AA");
+                                    
+                                } 
                         }
                     }
+                }
             }
         }    
         
