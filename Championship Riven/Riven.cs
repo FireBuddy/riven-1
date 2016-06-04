@@ -96,6 +96,7 @@ namespace Championship_Riven
                             {
                                 
                                 {
+                                    Player.IssueOrder(GameObjectOrder.MoveTo, Minion.Position);
                                     Player.IssueOrder(GameObjectOrder.AttackUnit, Minion);
                                     Core.DelayAction( () => Player.CastSpell(SpellSlot.Q), 291);
                                     Chat.Print("Last Hitting With AA-Q");
@@ -107,7 +108,7 @@ namespace Championship_Riven
                             {
                                 
                                 {
-                                    Player.IssueOrder(GameObjectOrder.MoveTo, Minion)
+                                   
                                     Player.IssueOrder(GameObjectOrder.AttackUnit, Minion);
                                     Core.DelayAction( () => Player.CastSpell(SpellSlot.W), 291);
                                     Chat.Print("Last Hitting With AA-W");
