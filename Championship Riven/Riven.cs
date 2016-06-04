@@ -79,7 +79,7 @@ namespace Championship_Riven
 
         public static void Obj_AI_Turret_OnBasicAttack(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
         {
-            if ((Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.LastHit)||Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.LaneClear)) && sender is Obj_AI_Turret && sender.Distance(Player.Instance) < 2000 && sender.IsAlly)
+            if (Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.LastHit) && sender is Obj_AI_Turret && sender.Distance(Player.Instance) < 800 && sender.IsAlly)
             {
                 
                 if (!(args.Target is AIHeroClient))
@@ -93,7 +93,7 @@ namespace Championship_Riven
                         {
                             if(Q.IsReady() && CountQ < 2)
                             {
-                                if(Minion.Health > Player.Instance.TotalAttackDamage && Minion.Health - sender.TotalAttackDamage * 1 <= 0)
+                                
                                 {
                                     Player.IssueOrder(GameObjectOrder.AttackUnit, Minion);
                                     Core.DelayAction( () => Player.CastSpell(SpellSlot.Q), 291);
@@ -104,7 +104,7 @@ namespace Championship_Riven
                         
                             else if(W.IsReady())
                             {
-                                if(Minion.Health > Player.Instance.TotalAttackDamage && Minion.Health - sender.TotalAttackDamage * 1 <= 0)
+                                
                                 {
                                     Player.IssueOrder(GameObjectOrder.AttackUnit, Minion);
                                     Core.DelayAction( () => Player.CastSpell(SpellSlot.W), 291);
@@ -114,7 +114,7 @@ namespace Championship_Riven
                             }
                             else if(E.IsReady())
                             {
-                                if(Minion.Health > Player.Instance.TotalAttackDamage && Minion.Health - sender.TotalAttackDamage * 1 <= 0)
+                                
                                 {
                                     E.Cast(Player.Instance.Position.Extend(Minion.ServerPosition, 200).To3D());
                                     Player.IssueOrder(GameObjectOrder.AttackUnit, Minion);
@@ -127,7 +127,7 @@ namespace Championship_Riven
                         }
                         else if(E.IsReady() && Minion.IsValidTarget(400) && !Minion.IsDead && Minion == args.Target )
                         {
-                            if(Minion.Health > Player.Instance.TotalAttackDamage && Minion.Health - sender.TotalAttackDamage * 1 <= 0)
+                            
                                 {
                                     E.Cast(Player.Instance.Position.Extend(Minion.ServerPosition, 200).To3D());
                                     Player.IssueOrder(GameObjectOrder.AttackUnit, Minion);
