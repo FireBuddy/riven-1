@@ -717,13 +717,13 @@ namespace Championship_Riven
         }  
 
         
-        private void LastHit()
+        private static void LastHit()
         {
             if (E.IsReady())
             {
                 var turret =
                     EntityManager.Turrets.Enemies.FirstOrDefault(
-                        t => !t.IsDead && t.HealthPercent > 5 && t.Distance(Player)>E.Range);
+                        t => !t.IsDead && t.HealthPercent > 5 && t.Distance(Player) > E.Range);
                 if (turret != null)
                     E.Cast(turret);
             }
