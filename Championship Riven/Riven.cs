@@ -25,7 +25,7 @@ namespace Championship_Riven
         public static int LastW;
         public static int LastE;
 
-        public static Spell.Skillshot Q;
+        public static Spell.Skillshot Q;l
         public static Spell.Active W;
         public static Spell.Skillshot E;
         public static Spell.Active R;
@@ -717,7 +717,7 @@ namespace Championship_Riven
         }  
 
         
-        private static void LastHit()
+        private void LastHit()
         {
             if (E.IsReady())
             {
