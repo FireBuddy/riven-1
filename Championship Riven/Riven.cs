@@ -133,6 +133,7 @@ namespace Championship_Riven
                         {
                             
                                 {
+                                    Player.IssueOrder(GameObjectOrder.MoveTo, Minion.Position);
                                     E.Cast(Player.Instance.Position.Extend(Minion.ServerPosition, 200).To3D());
                                     Player.IssueOrder(GameObjectOrder.AttackUnit, Minion);
                                    
