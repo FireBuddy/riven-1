@@ -722,9 +722,6 @@ namespace Championship_Riven
                 }
             }
         }
-
-        }
-        private static void LastHit()
         {
             var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, Q.Range * 2 + 125);
             
@@ -750,6 +747,10 @@ namespace Championship_Riven
                 }      
             }
         }  
+
+        }
+        private static void LastHit()
+
         
         private static void Jungleclear()
         {
