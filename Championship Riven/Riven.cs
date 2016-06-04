@@ -1034,7 +1034,7 @@ namespace Championship_Riven
             }
             
             var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, 400);
-            foreach (var Minion in Minions)
+            var minion = foreach (var Minion in Minions)
             if (args.SData.Name.ToLower().Contains(Riven.Q.Name.ToLower()))
             {
                 LastCastQ = Environment.TickCount;
