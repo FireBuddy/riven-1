@@ -719,7 +719,7 @@ namespace Championship_Riven
         
         private static void LastHit()
         {
-                 var tawah = EntityManager.Turrets.Enemies.FirstOrDefault
+                 var tawah = EntityManager.Turrets.Allies.FirstOrDefault
                 (t => !t.IsDead && t.IsInRange(Player.Instance, E.Range));
         
         }
