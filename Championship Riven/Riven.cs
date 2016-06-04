@@ -1050,7 +1050,7 @@ namespace Championship_Riven
                     }
                     else
                     {
-                     CountQ = 0
+                     public static int CountQ = 0
                     }
                 }, 3480);
                 return;
