@@ -719,6 +719,7 @@ namespace Championship_Riven
         
         private static void LastHit()
         {
+        {
                 var tawah = EntityManager.Turrets.Allies.FirstOrDefault
                 (t => !t.IsDead && t.IsInRange(Player.Instance, 800));                   
                 var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, 450);
@@ -760,33 +761,31 @@ namespace Championship_Riven
                     }
                 }
         }
-        break;
+        
         {
-            var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, Q.Range * 2 + 125);
+            var Minions2 = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, Q.Range * 2 + 125);
             
-            foreach (var Minion in Minions)
+            foreach (var Minion2 in Minions2)
             {
 
                 if(Q.IsReady())
                 {
-                    if(Minion.IsValidTarget(Q.Range * 2 + 125) && !Minion.IsDead )
+                    if(Minion2.IsValidTarget(Q.Range * 2 + 125) && !Minion2.IsDead )
                     {
 
-                        if(Player.Instance.IsFacing(Minion) && ObjectManager.Player.Position.Distance(Minion.ServerPosition) > 409 && Minion.Health - Player.Instance.TotalAttackDamage * 1.2 <= 0)
+                        if(Player.Instance.IsFacing(Minion2) && ObjectManager.Player.Position.Distance(Minion2.ServerPosition) > 409 && Minion2.Health - Player.Instance.TotalAttackDamage * 1.2 <= 0)
                         {
                            
-                            Q.Cast(Player.Instance.Position.Extend(Minion.ServerPosition, 200).To3D());
+                            Q.Cast(Player.Instance.Position.Extend(Minion2.ServerPosition, 200).To3D());
                         }
                         
                     }
                 }
-                else if(E.IsReady() && CountQ > 1 && Minion.IsValidTarget(E.Range + 125) && ObjectManager.Player.Position.Distance(Minion.ServerPosition) > 300  && Minion.Health - SpellQDamage(Minion, Minion.Health) * 2 <= 0 )
-                {
-                      E.Cast(Player.Instance.Position.Extend(Minion.ServerPosition, 200).To3D());
-                }      
+
             }
         }
-        break;
+        }
+       
 
         
         private static void Jungleclear()
