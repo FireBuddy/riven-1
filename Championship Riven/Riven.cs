@@ -83,13 +83,14 @@ namespace Championship_Riven
             {
                 
                 if (!(args.Target is AIHeroClient))
-                {
-                if(args.Target.Health > Player.Instance.TotalAttackDamage )
-                     
+                    var TTarget = args.Target;
                     {
-
+                    if(TTarget.Health > Player.Instance.TotalAttackDamage )
+                         
+                        {
+    
+                        }
                     }
-                }
             }
         }    
         
