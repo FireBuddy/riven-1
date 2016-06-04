@@ -91,7 +91,7 @@ namespace Championship_Riven
                     if(args.Target.Health > Player.Instance.TotalAttackDamage && Minion.Health - sender.TotalAttackDamage * 1.3 <= 0 )
                      
                     {
-                        if( Minion.IsValidTarget(200) && !Minion.IsDead && Minion.NetworkID  == args.Target.NetworkID)
+                        if( Minion.IsValidTarget(200) && !Minion.IsDead && Minion.NetworkID  == args.NetworkID)
                         {
                             if(Q.IsReady() && CountQ < 2)
                             {
