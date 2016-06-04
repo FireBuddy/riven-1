@@ -86,8 +86,9 @@ namespace Championship_Riven
                 {
                     var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, 450);
                     foreach (var Minion in Minions)
-                    if(Minion.IsMelee && Minion.Health > Player.Instance.TotalAttackDamage && Minion.Health - sender.TotalAttackDamage * 1 <= 0)
-                    else if (!Minion.IsMelee && Minion.Health > Player.Instance.TotalAttackDamage && Minion.Health - sender.TotalAttackDamage * 1 <= 0) 
+                    
+                    if(Minion.Health > Player.Instance.TotalAttackDamage && (Minion.IsMelee && Minion.Health - sender.TotalAttackDamage * 1 <= 0) || (!Minion.IsMelee && Minion.Health - sender.TotalAttackDamage * 1.5 <= 0)  )
+                     
                     {
                         if( Minion.IsValidTarget(125) && !Minion.IsDead && Minion == args.Target )
                         {
