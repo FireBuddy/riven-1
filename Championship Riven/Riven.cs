@@ -760,6 +760,7 @@ namespace Championship_Riven
                     }
                 }
         }
+        break;
         {
             var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, Q.Range * 2 + 125);
             
@@ -784,7 +785,8 @@ namespace Championship_Riven
                       E.Cast(Player.Instance.Position.Extend(Minion.ServerPosition, 200).To3D());
                 }      
             }
-        } 
+        }
+        break;
 
         
         private static void Jungleclear()
