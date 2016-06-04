@@ -91,7 +91,7 @@ namespace Championship_Riven
                      
                     {
                         
-                        if(Prediction.Health.GetPrediction(minion, (int)(Q.CastDelay = 1000) > 1 && Minion.IsValidTarget(Player.Instance.GetAutoAttackRange(Minion)) && !Minion.IsDead && Minion == args.Target)
+                        if(Prediction.Health.GetPrediction(Minion, Q.CastDelay) > 1 && Minion.IsValidTarget(Player.Instance.GetAutoAttackRange(Minion)) && !Minion.IsDead && Minion == args.Target)
                         {
                             if(Q.IsReady() && CountQ <= 2)
                             {
