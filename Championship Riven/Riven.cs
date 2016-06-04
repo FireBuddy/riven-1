@@ -91,7 +91,7 @@ namespace Championship_Riven
                      
                     {
                         
-                        if( Minion.IsValidTarget(Player.Instance.GetAutoAttackRange(Minion)) && !Minion.IsDead && Minion == args.Target)
+                        if( Minion.IsValidTarget(Player.Instance.GetAutoAttackRange(Minion)) && Orbwalker.CanAutoAttack && Minion == args.Target)
                         {
                             if(Q.IsReady() && CountQ <= 2)
                             {
