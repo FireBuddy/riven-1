@@ -81,14 +81,13 @@ namespace Championship_Riven
         {
             if (sender is Obj_AI_Turret && sender.Distance(Player.Instance) < 800 && sender.IsAlly)
             {
-                
-                if (!(args.Target is AIHeroClient))
+                if (!(args.Target is AIHeroClient) && args.Target != null)
                 {
                     
                     var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, 450);
                     foreach (var Minion in Minions)
                     
-                    if(Minion.Health > Player.Instance.TotalAttackDamage * 0.8  && Minion.Health - sender.TotalAttackDamage <= 0 )
+                    if(Minion != null && Minion.Health > Player.Instance.TotalAttackDamage * 0.8  && Minion.Health - sender.TotalAttackDamage <= 0 )
                      
                     {
                         if( Minion.IsValidTarget(150) && !Minion.IsDead && Minion == args.Target)
