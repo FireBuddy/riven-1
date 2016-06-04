@@ -90,6 +90,7 @@ namespace Championship_Riven
                     if(Minion != null && Minion.Health > Player.Instance.TotalAttackDamage && Minion.Health - sender.TotalAttackDamage <= 0 )
                      
                     {
+                        var pred = Prediction.Health.GetPrediction(minion, (int)(Q.CastDelay = 1000);
                         if( Minion.IsValidTarget(Player.Instance.GetAutoAttackRange(Minion)) && !Minion.IsDead && Minion == args.Target)
                         {
                             if(Q.IsReady() && CountQ <= 2)
