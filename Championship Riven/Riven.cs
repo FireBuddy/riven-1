@@ -87,7 +87,7 @@ namespace Championship_Riven
                     var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, 450);
                     foreach (var Minion in Minions)
                     
-                    if(Minion != null && Prediction.Health.GetPrediction(Minion, Q.CastDelay) > Player.Instance.TotalAttackDamage && Prediction.Health.GetPrediction(Minion, 700) - sender.TotalAttackDamage <= 0 )
+                    if(Minion != null && Prediction.Health.GetPrediction(Minion, Q.CastDelay) > Player.Instance.TotalAttackDamage && Prediction.Health.GetPrediction(Minion, 1000) - sender.TotalAttackDamage <= 0 )
                      
                     {
                         
