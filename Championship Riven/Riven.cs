@@ -115,18 +115,7 @@ namespace Championship_Riven
                                     
                                 } 
                             }
-                            else if(E.IsReady())
-                            {
-                                
-                                {
-                                    
-                                    E.Cast(Player.Instance.Position.Extend(Minion.ServerPosition, 200).To3D());
-                                    Player.IssueOrder(GameObjectOrder.AttackUnit, Minion);
-                                    
-                                    Chat.Print("Last Hitting With e-AA");
-                                   
-                                } 
-                            }
+
                             
                         }
 
