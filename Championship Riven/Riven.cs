@@ -87,18 +87,18 @@ namespace Championship_Riven
                     var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, 450);
                     foreach (var Minion in Minions)
                     
-                    if(Minion != null && Minion.Health > Player.Instance.TotalAttackDamage * 0.8  && Minion.Health - sender.TotalAttackDamage <= 0 )
+                    if(Minion != null && Minion.Health > Player.Instance.TotalAttackDamage && Minion.Health - sender.TotalAttackDamage <= 0 )
                      
                     {
                         if( Minion.IsValidTarget(150) && !Minion.IsDead && Minion == args.Target)
                         {
-                            if(Q.IsReady() && CountQ < 2)
+                            if(Q.IsReady() && CountQ <= 2)
                             {
                                 
                                 {
                                     
                                     Player.IssueOrder(GameObjectOrder.AttackUnit, Minion);
-                                    
+                                    Core.DelayAction( () => Player.CastSpell(SpellSlot.W), 300)
                                     Chat.Print("Last Hitting With AA-Q");
                                     
                                 }
@@ -110,7 +110,7 @@ namespace Championship_Riven
                                 {
                                     
                                     Player.IssueOrder(GameObjectOrder.AttackUnit, Minion);
-                                    
+                                    Core.DelayAction( () => Player.CastSpell(SpellSlot.W), 300)
                                     Chat.Print("Last Hitting With AA-W");
                                     
                                 } 
