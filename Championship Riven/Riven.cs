@@ -88,7 +88,7 @@ namespace Championship_Riven
                     var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, 450);
                     foreach (var Minion in Minions)
                     
-                    if(args.Target.Health > Player.Instance.TotalAttackDamage && Minion.Health - sender.TotalAttackDamage <= 0 )
+                    if(Minion.Health > Player.Instance.TotalAttackDamage && Minion.Health - sender.TotalAttackDamage <= 0 )
                      
                     {
                         if( Minion.IsValidTarget(200) && !Minion.IsDead && Minion == args.Target)
@@ -1047,6 +1047,10 @@ namespace Championship_Riven
                             Orbwalker.LastTarget != null && Orbwalker.LastAutoAttack - Environment.TickCount < 3000
                                 ? Orbwalker.LastTarget.Position
                                 : Game.CursorPos);
+                    }
+                    else
+                    {
+                     CountQ = 0
                     }
                 }, 3480);
                 return;
