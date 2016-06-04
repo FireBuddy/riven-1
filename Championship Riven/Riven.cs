@@ -720,7 +720,46 @@ namespace Championship_Riven
         private static void LastHit()
         {
                  var tawah = EntityManager.Turrets.Allies.FirstOrDefault
-                (t => !t.IsDead && t.IsInRange(Player.Instance, E.Range));
+                (t => !t.IsDead && t.IsInRange(Player.Instance, 500));
+                {
+                    
+                    var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, 450);
+                    foreach (var Minion in Minions)
+                    
+                    if (tawah == null && Minion != null && Prediction.Health.GetPrediction(Minion, Q.CastDelay) > Player.Instance.TotalAttackDamage && Prediction.Health.GetPrediction(Minion, 500) - Player.Instance.TotalAttackDamage * 1.5  <= 0 )
+                     
+                    {
+                        
+                        if( Minion.IsValidTarget(Player.Instance.GetAutoAttackRange(Minion)) && Orbwalker.CanAutoAttack)
+                        {
+                            if(Q.IsReady() && CountQ <= 2)
+                            {
+                                
+                                {
+                                    
+                                    Player.IssueOrder(GameObjectOrder.AttackUnit, Minion);
+                                    Core.DelayAction( () => Player.CastSpell(SpellSlot.Q), 200);
+                                    Chat.Print("Last Hitting With AA-Q");
+                                    
+                                }
+                            }
+                        
+                            else if(W.IsReady())
+                            {
+                                
+                                {
+                                    
+                                    Player.IssueOrder(GameObjectOrder.AttackUnit, Minion);
+                                    Core.DelayAction( () => Player.CastSpell(SpellSlot.W), 300);
+                                    Chat.Print("Last Hitting With AA-W");
+                                    
+                                } 
+                            }
+
+                            
+                        }
+
+                    }
         
         }
 
