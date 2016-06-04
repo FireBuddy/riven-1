@@ -724,7 +724,7 @@ namespace Championship_Riven
                 var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, 450);
                 foreach (var Minion in Minions)
                     
-                    if (tawah == null && Minion != null && Prediction.Health.GetPrediction(Minion, 50) > Player.Instance.TotalAttackDamage && Prediction.Health.GetPrediction(Minion, 50) - Player.Instance.TotalAttackDamage - SpellQDamage(Minion, Minion.Health)  <= 0 )
+                    if (tawah == null && Player.Position.Distance(tawah.ServerPosition) < 750 && Minion != null && Prediction.Health.GetPrediction(Minion, 50) > Player.Instance.TotalAttackDamage && Prediction.Health.GetPrediction(Minion, 50) - Player.Instance.TotalAttackDamage - SpellQDamage(Minion, Minion.Health)  <= 0 )
                      
                     {
                         
