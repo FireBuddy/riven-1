@@ -772,7 +772,7 @@ namespace Championship_Riven
             foreach (var Minion2 in Minions2)
             {
 
-                if(tawah2 == null && Q.IsReady())
+                if(tawah2 == null && Q.IsReady() && ObjectManager.Player.Position.Distance(Minion2.ServerPosition) < ObjectManager.Player.Position.Distance(mawah.ServerPosition))
                 {
                     if(Minion2.IsValidTarget(Q.Range * 2 + 125) && !Minion2.IsDead )
                     {
