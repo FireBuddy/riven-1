@@ -1033,7 +1033,7 @@ namespace Championship_Riven
                 return;
             }
             
-            var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, 400).Where(minion => minion != null && !minion.IsDead).ToList();
+            var minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.Position, Q.Range).Where(minion => minion != null && !minion.IsDead).ToList();
             
             if (args.SData.Name.ToLower().Contains(Riven.Q.Name.ToLower()))
             {
