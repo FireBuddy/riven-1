@@ -99,7 +99,7 @@ namespace Championship_Riven
                                     Player.IssueOrder(GameObjectOrder.AttackUnit, Minion);
                                     Core.DelayAction( () => Player.CastSpell(SpellSlot.Q), 291);
                                     Chat.Print("Last Hitting With AA-Q");
-                                    return;
+                                    
                                 }
                             }
                         
@@ -110,7 +110,7 @@ namespace Championship_Riven
                                     Player.IssueOrder(GameObjectOrder.AttackUnit, Minion);
                                     Core.DelayAction( () => Player.CastSpell(SpellSlot.W), 291);
                                     Chat.Print("Last Hitting With AA-W");
-                                    return;
+                                    
                                 } 
                             }
                             else if(E.IsReady())
@@ -121,7 +121,7 @@ namespace Championship_Riven
                                     Player.IssueOrder(GameObjectOrder.AttackUnit, Minion);
                                     
                                     Chat.Print("Last Hitting With e-AA");
-                                    return;
+                                   
                                 } 
                             }
                             
@@ -134,7 +134,7 @@ namespace Championship_Riven
                                     Player.IssueOrder(GameObjectOrder.AttackUnit, Minion);
                                    
                                     Chat.Print("Last Hitting With E-AA");
-                                    return;
+                                    
                                 } 
                         }
                     }
